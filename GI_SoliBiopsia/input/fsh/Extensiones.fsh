@@ -75,7 +75,7 @@ Extension: CondicionClinica
 Id: CondicionClinica
 Title: "Extension de Condición Clínica."
 Description: "Extension de códigos para Condición Clínica."
-Context: Diagnostico
+Context: Diagnostico , Composition
 * value[x] only code
   * ^short = "Codigos de uno de nuestros VS"
 * valueCode from VSSCondicionClinica (required)

@@ -15,8 +15,3 @@ Description: "Este es un perfil donde se encontrarán los datos personales del p
   * code 1..1
 * gender 1..1
 * birthDate 1..1
-
-
-
-
-

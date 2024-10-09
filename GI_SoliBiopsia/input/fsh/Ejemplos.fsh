@@ -13,17 +13,15 @@ Usage : #example
 * identifier.type.coding.code = #NNCHL
 * identifier.type.coding.display = "RUN"
 
-//**/ identifier.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSIdentificador."
+
 * identifier.value = "66.666.666-k"
 
 //registro de paciente activo
 * active = true
 
 //Nombre Oficial
-//* name[NombreOficial].use = #official
 * name[NombreOficial].use = #official
 * name[NombreOficial].family = "Vader"
-// * name[NombreOficial].family.extension[mothers-family].valueString	 = "Perez" //uso de la extensión
 * name[NombreOficial].family.extension[segundoApellido].valueString	 = "Perez" //uso de la extensión
 * name[NombreOficial].given[0] = "Anaqueen"
 * name[NombreOficial].given[+] = "Darth"
@@ -31,11 +29,10 @@ Usage : #example
 //sexo registrado al nacer y fecha de nacimiento
 * gender = #male
 * birthDate = "1970-03-24"
-///*
+
 * extension[SexoBiologico].url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoBiologico"
 * extension[SexoBiologico].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
 * extension[SexoBiologico].valueCodeableConcept.coding.code = #male
-//*/
 
 //2.Ejemplo de diágnostico
 Instance : EjDiagnostico
@@ -84,8 +81,8 @@ Usage: #example
 * identifier.value = "Documento"
 * status = #final 
 * type.coding.system = "http://loinc.org"
-* type.coding.code =  #12345-6 
-* type.coding.display = "Biopsy Tissue Specimen"
+* type.coding.code =  #66108-2
+* type.coding.display = "Bone Pathology biopsy report"
 
 * subject.display = "Paciente"
 
@@ -158,27 +155,22 @@ Usage: #example
 * event.period.end = "2024-07-23"
 
 * section[AntecedentesClinicos].title = "Antecedentes Clínicos."
-//* section[AntecedentesClinicos].code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento1"
 * section[AntecedentesClinicos].code.coding.code = #01
 * section[AntecedentesClinicos].entry.display = "Ámbitoclinico"
 
 * section[ExamenMacroscopico].title = "Examen Macróscopico."
-//* section[ExamenMacroscopico].code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento1"
 * section[ExamenMacroscopico].code.coding.code = #02
 * section[ExamenMacroscopico].entry.display = "Servicio Solicitante."
 
 * section[DescripcionMicroscopica].title = "DescripciónMicroscópica."
-//* section[DescripcionMicroscopica].code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento1"
 * section[DescripcionMicroscopica].code.coding.code = #04
 * section[DescripcionMicroscopica].entry.display = "Muestra"
 
 * section[DiagnosticoInicial].title = "Diagnóstico Inicial."
-//* section[DiagnosticoInicial].code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento1"
 * section[DiagnosticoInicial].code.coding.code = #06
 * section[DiagnosticoInicial].entry.display = "DiagnósticoInicial"
 
 * section[DiagnosticoFinal].title = "Diagnóstico Final."
-//* section[DiagnosticoFinal].code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento1"
 * section[DiagnosticoFinal].code.coding.code = #07
 * section[DiagnosticoFinal].entry.display = "DiagnósticoFinal"
 
@@ -276,7 +268,6 @@ Usage : #example
 //http://hl7.org/fhir/ValueSet/identifier-use|4.0.1
 * identifier.type.coding.system = "http://hl7.org/fhir/identifier-use" //yo creo q se va a necesitar un codesystem para esto
 * identifier.type.coding.code = #official
-//* identifier.type.coding.display = "procedimientoQuirúrgico"
 * status = #active
 * subject.display = "Paciente"
 * priority = #urgent
@@ -310,7 +301,6 @@ Usage : #example
 * identifier.type.coding.code = #01
 * identifier.type.coding.display = "RUN"
 
-//**/ identifier.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSIdentificador."
 * identifier.value = "20.666.234-k"
 * subject.display = "Paciente"
 * status = #preparation

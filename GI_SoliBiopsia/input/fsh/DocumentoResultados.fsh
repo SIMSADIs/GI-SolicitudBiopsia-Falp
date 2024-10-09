@@ -5,8 +5,6 @@ Id: DocumentoResultados
 Title: "Documento de informe de resultados de exámen de Biopsia."
 Description: "Documento de salida de informe con resultados del procedimiento realizado."
 
-//* text MS
-//* identifier MS
 
 * identifier 1..1 MS
 * identifier ^short = "Identificador local para recurso de documeto que puede ser distinto para cada versión del mismo"
@@ -57,14 +55,6 @@ Description: "Documento de salida de informe con resultados del procedimiento re
 * type 1..1
 * type.text = "extracto de"
 
-//*--organización----
-//** organization 0..*
-//* organization MS
-//* organization only Reference(OrganizacionCL)
-//* organization ^short = "organización que solicita el documento."
-//* organzation  ^definition = "organización solicitante del documento."
-
-
 
 * section 0..
 * section ^slicing.discriminator[0].type = #pattern
@@ -72,10 +62,8 @@ Description: "Documento de salida de informe con resultados del procedimiento re
 * section ^slicing.ordered = false
 * section ^slicing.rules = #open
   * title 1..1
-  //* code.coding 1..1
-    //* system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento"
-    //* code from https://biomedica.uv.cl/fhir/ValueSet/VSSDocumento
-    
+
+
 * section.code 1.. MS
 * section.code from VSSDocumento1 (extensible)
 * section contains 
@@ -90,38 +78,26 @@ Description: "Documento de salida de informe con resultados del procedimiento re
 
 * section[AntecedentesClinicos]
   * ^definition = "En esta sección van todos los antecedentes clínicos del paciente."
-  //* code.coding.code = CSSDocumento1#01 // * entry only Reference(Composition)
   * code = CSSDocumento1#01
-  //  * entry only Reference(Composition) or Reference(https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento)
   * entry only Reference(AmbitoClinico)
-  
 
 * section[ExamenMacroscopico]
   
   * ^definition = "En esta sección van todos las descripciones generales  del examen macroscópico de la muestra."
-  //* code.coding.code = CSSDocumento1#02
   * code = CSSDocumento1#02
   * entry only Reference(AmbitoClinico)
 
-
 * section[DescripcionMicroscopica]
   * ^definition = "En esta sección van todos las descripciones específicas de la muestra."
-  //* code.coding.code = CSSDocumento1#04
   * code = CSSDocumento1#04
-  //* entry only Reference(Specimen) or Reference(https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento)
   * entry only Reference(Muestra)
-
 
 * section[DiagnosticoInicial]
   * ^definition = "En esta sección va el resultado inicial  del procedimiento."
-  //* code.coding.code = CSSDocumento1#06
   * code =  CSSDocumento1#06
-  //* entry only Reference(DiagnosticReport) or Reference(https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento)
   * entry only Reference(Diagnostico)
 
 * section[DiagnosticoFinal]
   * ^definition = "En esta sección va el resultado final del procedimiento."
-  //* code.coding.code = CSSDocumento1#07
   * code = CSSDocumento1#07
-  //* entry only Reference(DiagnosticReport) or Reference(https://biomedica.uv.cl/fhir/CodeSystem/CSSDocumento)
   * entry only Reference(Diagnostico)

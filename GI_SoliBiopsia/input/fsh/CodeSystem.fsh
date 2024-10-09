@@ -1,4 +1,3 @@
-
 CodeSystem: CSSDocumento1
 Id: CSSDocumento1
 Title: "Códigos de sección del documento"

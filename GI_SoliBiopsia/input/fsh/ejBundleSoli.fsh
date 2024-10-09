@@ -1,25 +1,27 @@
 Instance: EjBundleSolicitud
 InstanceOf: BundleSolicitud
-Usage: #example
+Usage: #Example
 Title: "Ejemplo Bundle solicitud"
 Description: "Ejemplo de estructura de un perfil Bundle para la solicitud de biopsia"
 
-//* meta.profile = "http://FALPCORE.com/StructureDefinition/BundleSolicitud"
+* meta.lastUpdated = "2024-05-20T14:15:00-03:00"
 * identifier.value = "bundleSoli"  
 * type = #document
 
 * timestamp = "2024-05-28T22:12:21Z"
 
-* entry[entryDocumento].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/DocumentoBiopsia/EjDocBiopsiaBundle"
-* entry[entryDocumento].resource = EjDocBiopsiaBundle
-
-* entry[entryPaciente].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Paciente/1"
-* entry[entryPaciente].resource = PacienteBundleSoli
-
-* entry[entryPrestador].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Profesional/1"
-* entry[entryPrestador].resource = PrestadorBunndleSoli
-
-
+* entry[0].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/DocumentoBiopsia/EjDocBiopsiaBundle"
+* entry[=].resource = EjDocBiopsiaBundle
+* entry[+].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Paciente/1"
+* entry[=].resource = PacienteBundleSoli
+* entry[+].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Profesional/1"
+* entry[=].resource = PrestadorBunndleSoli
+* entry[+].section[0].fullurl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/AmbitoClinico/1"
+* entry[=].section[=].resource = EjAntClinicosBundle
+* entry[+].section[+].fullurl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Muestra/1"
+* entry[=].section[=].resource = EjMuestraBundle
+* entry[+].section[+].fullurl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Diagnostico/1"
+* entry[=].section[=].resource = EjDiagnosticoBundle
 
 Instance : PacienteBundleSoli
 Title : "Ejemplo de Recurso Paciente"
@@ -95,6 +97,7 @@ InstanceOf: AmbitoClinico
 Usage: #inline
 Title: "EjAntClinicos"
 
+* id = "1"
 * subject = Reference(PacienteBundleSoli)
 
 * section.code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDiagnostico"
@@ -115,6 +118,8 @@ InstanceOf: Muestra
 Usage: #inline
 Title: "EjMuestra"
 
+
+* id = "1"
 * identifier.use = #official    //obligado
 
 * identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
@@ -153,6 +158,7 @@ InstanceOf: Diagnostico
 Usage: #inline
 Title: "EjDiagnosticoBundle"
 
+* id = "1"
 * identifier.use = #official    //obligado
 
 * identifier.type.coding.system = "https://hl7.org/fhir/R4/v2/0203"
@@ -188,8 +194,8 @@ Usage: #inline
 * identifier.value = "Documento"
 * status = #final 
 * type.coding.system = "http://loinc.org"
-* type.coding.code =  #52121-1 
-* type.coding.display = "Biopsy [Interpretation] in Specimen Narrative"
+* type.coding.code =  #66108-2
+* type.coding.display = "Bone Pathology biopsy report"
 
 * subject = Reference(PacienteBundleSoli)
 

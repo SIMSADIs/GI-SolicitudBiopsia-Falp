@@ -7,11 +7,3 @@ Description: "Este es un perfil donde se encontrarán los datos de la organizaci
   * ^short = "nombre de la organización"
   * ^definition = "nombre identificado de la organización en cuestión"
 
-
-
-
-
-
-
-
-

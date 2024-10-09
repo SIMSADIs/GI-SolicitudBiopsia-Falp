@@ -91,7 +91,6 @@ Description: "Documento de entrada para solicitud de biopsia"
   * code = $CSSDocumento1#03
   * entry only Reference(Muestra)
 
-
 * section[Diagnostico]
   * ^definition = "En esta sección va el resultado final del procedimiento."
   * code = $CSSDocumento1#05
