@@ -1,4 +1,3 @@
-
 Profile : ServicioSolicitante
 Parent : ServiceRequest
 Description: "Este es un perfil donde se encontrarán los datos del servicio de salud que realiza la petición de muestra"
@@ -6,7 +5,7 @@ Description: "Este es un perfil donde se encontrarán los datos del servicio de 
 * identifier    1..1 
   * ^short = "Identificador del servicio solicitante"
   * ^definition = "Se define el identificador como aquel que lo distingue del resto de los servicios clínicos."
-  * extension contains  http://hl7.org/fhir/StructureDefinition/identifier-validDate named identificador  0..1
+//  * extension contains  http://hl7.org/fhir/StructureDefinition/identifier-validDate named identificador  0..1
 
 * intent 1..1 
 * intent MS
@@ -33,7 +32,7 @@ Description: "Este es un perfil donde se encontrarán los datos del servicio de 
   * ^short = "Información adicional."
 * subject 1..1
 * subject MS 
-* subject only Reference(Paciente)
+* subject only Reference(PacienteFalp)
 
 
 * occurrence[x] 0..1
@@ -43,7 +42,6 @@ Description: "Este es un perfil donde se encontrarán los datos del servicio de 
   * ^definition = "Fecha y hora de firma de la solicitud."
 * requester 0..1 
 * performer 0..*
-
 
 * locationReference 0..* 
   * ^short = "localización referencial."
@@ -57,4 +55,3 @@ Description: "Este es un perfil donde se encontrarán los datos del servicio de 
 * patientInstruction 0..1
   * ^short = "sección de instrucciones al paciente."
 * relevantHistory 0..* 
-

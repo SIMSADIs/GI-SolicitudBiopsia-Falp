@@ -5,115 +5,148 @@ Title: "Ejemplo Bundle solicitud"
 Description: "Ejemplo de estructura de un perfil Bundle para la solicitud de biopsia"
 
 * meta.lastUpdated = "2024-05-20T14:15:00-03:00"
+//* identifier.system = ""
 * identifier.value = "bundleSoli"  
 * type = #document
 
 * timestamp = "2024-05-28T22:12:21Z"
 
-* entry[0].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/DocumentoBiopsia/EjDocBiopsiaBundle"
-* entry[=].resource = EjDocBiopsiaBundle
-* entry[+].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Paciente/1"
-* entry[=].resource = PacienteBundleSoli
-* entry[+].fullUrl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Profesional/1"
-* entry[=].resource = PrestadorBunndleSoli
-* entry[+].section[0].fullurl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/AmbitoClinico/1"
-* entry[=].section[=].resource = EjAntClinicosBundle
-* entry[+].section[+].fullurl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Muestra/1"
-* entry[=].section[=].resource = EjMuestraBundle
-* entry[+].section[+].fullurl = "http://FALPCORE.com/ImplementationGuide/FALPCORE/Diagnostico/1"
-* entry[=].section[=].resource = EjDiagnosticoBundle
+* entry[0].fullUrl = "urn:uuid:871153f1-383d-4cf5-bcf2-5ff175de4657"
+* entry[=].resource = 871153f1-383d-4cf5-bcf2-5ff175de4657
+* entry[+].fullUrl = "urn:uuid:4f212000-9b14-4b3a-b055-466fc34a01c1"
+* entry[=].resource = 4f212000-9b14-4b3a-b055-466fc34a01c1
+* entry[+].fullUrl = "urn:uuid:1d1a47c3-611b-4a59-8f06-f384eb4b71e7"
+* entry[=].resource = 1d1a47c3-611b-4a59-8f06-f384eb4b71e7
+* entry[+].fullUrl = "urn:uuid:15f466c9-c4be-48f3-a372-25ebff93b310"
+* entry[=].resource = 15f466c9-c4be-48f3-a372-25ebff93b310
+* entry[+].fullUrl = "urn:uuid:68da446d-8012-4f03-bd3a-e5a70773db44"
+* entry[=].resource = 68da446d-8012-4f03-bd3a-e5a70773db44
+* entry[+].fullUrl = "urn:uuid:b8dd3cef-5b58-4ef1-a919-f8cb8e634187"
+* entry[=].resource = b8dd3cef-5b58-4ef1-a919-f8cb8e634187
 
-Instance : PacienteBundleSoli
+Instance : 4f212000-9b14-4b3a-b055-466fc34a01c1
 Title : "Ejemplo de Recurso Paciente"
 Description: "Paciente ficticio nacional CI Chilena, sin sistema de validación \"http://regcivil.cl/Validacion/RUN\" ficticio, cuyo nombre se decribe mediante el oficial y uno social. La dirección tampoco es real."
-InstanceOf : PacienteCl
+InstanceOf : PacienteFalp
 Usage : #inline
 
-* id = "1"
-* identifier.use = #official   
 
-* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodigoDNI."
-* identifier.type.coding.code = #NNCHL
-* identifier.type.coding.display = "RUN"
+* extension[Sexobiologico].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSSexoBiologico"
+* extension[Sexobiologico].valueCodeableConcept.coding = #1 "Hombre"
 
-* identifier.value = "66.666.666-k"
+* extension[Nacionalidad].valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais"
+* extension[Nacionalidad].valueCodeableConcept.coding.code = #152 "Chile"
+
+
+* name[NombreOficial].family = "Perez"
+* name[NombreOficial].given[0] = "Juan"
+* name[NombreOficial].use = #official
+
+* birthDate = "1980-01-01"
+
+* identifier.use = #secondary
+* identifier.type = #01
+* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
+* identifier.type.coding.display = "Rol Único Nacional o RUN"
+* identifier.value = "30.696.558-7"
 
 * active = true
 
-* name[NombreOficial].use = #official
-* name[NombreOficial].family = "Vader"
-* name[NombreOficial].family.extension[segundoApellido].valueString	 = "Perez" 
-* name[NombreOficial].given[0] = "Anaqueen"
-* name[NombreOficial].given[+] = "Darth"
+* address.use = #home
+* address.line[0] = "Calle 6 Norte, 52, pieza 802"
 
-* gender = #male
-* birthDate = "1970-03-24"
+* address.city.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl"
+* address.city.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL"
+* address.city.extension.valueCodeableConcept.coding.code = #13101 "Santiago Centro"
 
-* extension[SexoBiologico].url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoBiologico"
-* extension[SexoBiologico].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
-* extension[SexoBiologico].valueCodeableConcept.coding.code = #male
+* address.district.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl"
+* address.district.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL"
+* address.district.extension.valueCodeableConcept.coding.code = #131 "Santiago"
+
+* address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
 
 
+* contact.relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0131"
+* contact.relationship.coding.code = #N "Next of Kin"
 
-Instance: PrestadorBunndleSoli
-InstanceOf: PrestadorCL
+* contact.address.use = #home
+* contact.address.line[0] = "Gregorio Mira 123" 
+
+* contact.address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* contact.address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* contact.address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
+
+
+* contact.name.use =  #official
+* contact.name.family = "Gonzalez"
+* contact.name.given[0] = "Maria"
+ 
+* contact.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdContacto"
+
+// esto sería el slice de tutID obligatorio 
+* contact.extension.extension.url = "tutId"
+* contact.extension.extension.valueIdentifier.use = #official "Official"
+* contact.extension.extension.valueIdentifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* contact.extension.extension.valueIdentifier.type.coding.code = #3
+* contact.extension.extension.valueIdentifier.type.coding.display = "PPN"
+* contact.extension.extension.valueIdentifier.system = "http://regcivil.cl/Validacion/RUN"
+* contact.extension.extension.valueIdentifier.value = "12.435.789-k"
+
+* contact.telecom[0].system = #phone
+* contact.telecom[=].value = "+56912345678"
+* contact.telecom[=].use = #mobile
+* contact.telecom[=].system = #email
+* contact.telecom[=].value = "maria.gonzalez@example.com"
+* contact.telecom[=].use = #home
+
+* contact.telecom[0].extension[MyTelecomExtension].valueString = "ejemplo@correoaompañante.cl"
+
+
+Instance: 1d1a47c3-611b-4a59-8f06-f384eb4b71e7
+InstanceOf: PrestadorFalp
 Usage: #inline
 Title: "PrestadorBunndleSoli"
 Description: "Ejemplo de perfil prestador individual para ejemplo de bundle de documento de solicitud de biopsia"
 
-* id = "1"
-* identifier.use = #official    //obligado
-
-* identifier.type.coding.system = "https://hl7.org/fhir/R4/v2/0203/index.html"
-* identifier.type.coding.code = #SNO
-* identifier.type.coding.display = "Serial Number"
-
-* identifier.system = "http://regcivil.cl/Validacion/RUN"
-* identifier.value = "666 234 653 234"
-
-//registro de paciente activo
-* active = true
-//Nombre Oficial
-* name.use = #official
-* name.family = "viaux"
-
- //dos contactos, un celular y un email
-* telecom.system = #phone
-* telecom.use = #mobil
-* telecom.value = "943561833"
-
-* telecom.system = #email
-* telecom.use = #work
-* telecom.value = "Darth@imperio.com"
-* qualification.identifier.system = "http://terminology.hl7.org/CodeSystem/v2-0360|2.7"
-* qualification.code.coding = #AS
-* qualification.identifier.value = "Associate of Science"
-* gender = #male
-* birthDate = "1970-03-24"
+* name.family = "Gonzaléz"
+* name.given = "Pedro"
+* birthDate = "1980-12-25" 
 
 
-Instance: EjAntClinicosBundle
-InstanceOf: AmbitoClinico
-Usage: #inline
-Title: "EjAntClinicos"
+* identifier.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* identifier.value = "15.666.378-2"
+* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* identifier.type.coding.code = #2
+* identifier.type.coding.display = "RNPI"
 
-* id = "1"
-* subject = Reference(PacienteBundleSoli)
+* address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
 
-* section.code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDiagnostico"
-* section.code = #03
-* date = "2023-03-24"
-* title = "Descripción de datos correspondientes al ámbito Clínico"
-* author = Reference(PrestadorBunndleSoli)
+* extension[Mension].valueString = "NEFROLOGO" 
 
-* extension[CondicionClinica].valueCode = #01
+* qualification[Cert].identifier.value = "cert"
+* qualification[Cert].code.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTituloProfesional"
+* qualification[Cert].code.coding.code = #1
+* qualification[Cert].code.text = "Certificado(s)"
 
-* extension[SospechaDiagnosticada].valueCode = #confirmed
-* type.text = "Ámbito Clínico"
-* status = #final
+* qualification[SubEsp].identifier.value = "subesp"
+* qualification[SubEsp].code.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSEspecialidadMedica"
+* qualification[SubEsp].code.coding.code = #4
+* qualification[SubEsp].code.text = "SubEspecialidad(es)"
+
+Instance: 15f466c9-c4be-48f3-a372-25ebff93b310
+InstanceOf: CondicionClinica
+Usage: #example
+Title: "EjCondicionClinica"
+Description: "Ejemplo para condicion clinica"
+
+* subject = Reference(urn:uuid:4f212000-9b14-4b3a-b055-466fc34a01c1)
 
 
-Instance: EjMuestraBundle
+Instance: 68da446d-8012-4f03-bd3a-e5a70773db44
 InstanceOf: Muestra
 Usage: #inline
 Title: "EjMuestra"
@@ -153,7 +186,7 @@ Title: "EjMuestra"
 * note.text = "Las células principales del estómago son:  zimogénicas, peptídicas,​ las cuales son un tipo de célula que forman parte de las glándulas gástricas del estómago, y están encargadas de la secreción de pepsinógeno, lipasa gástrica y quimosina." 
 
 
-Instance: EjDiagnosticoBundle
+Instance: b8dd3cef-5b58-4ef1-a919-f8cb8e634187
 InstanceOf: Diagnostico
 Usage: #inline
 Title: "EjDiagnosticoBundle"
@@ -186,7 +219,7 @@ La dermis muestra un infiltrado inflamatorio crónico con predominancia de linfo
 * presentedForm.url = 	"http://hl7.org/fhir/ValueSet/languages"
 
 
-Instance: EjDocBiopsiaBundle
+Instance: 871153f1-383d-4cf5-bcf2-5ff175de4657
 Description: "Ejemplo de documento de solicitud de biopsia."
 InstanceOf: DocumentoBiopsia
 Usage: #inline
@@ -197,31 +230,31 @@ Usage: #inline
 * type.coding.code =  #66108-2
 * type.coding.display = "Bone Pathology biopsy report"
 
-* subject = Reference(PacienteBundleSoli)
+* subject = Reference(urn:uuid:4f212000-9b14-4b3a-b055-466fc34a01c1)
 
 * date = "2024-05-20"
 * section.title = "Documento de Biopsia"
 
-* author = Reference(PrestadorBunndleSoli)
+* author = Reference(urn:uuid:1d1a47c3-611b-4a59-8f06-f384eb4b71e7)
 
 * event.period.start = "2024-04-20"
 * event.period.end = "2024-07-20"
  
- 
-* section[AntecedentesClinicos].title = "Antecedentes Clínicos"
-* section[AntecedentesClinicos].code.coding.system = "http://FALPCORE.com/CodeSystem/CSSDocumento1"
-* section[AntecedentesClinicos].code.coding.code = #01
-* section[AntecedentesClinicos].entry = Reference(EjAntClinicosBundle)
 
-* section[ProcedimientosQuirurgicos].title = "Procedimientos Quirurgicos."
-* section[ProcedimientosQuirurgicos].code.coding.system = "http://FALPCORE.com/CodeSystem/CSSDocumento1"
-* section[ProcedimientosQuirurgicos].code.coding.code = #03
-* section[ProcedimientosQuirurgicos].entry = Reference(EjMuestraBundle)
+* section[0].title = "Antecedentes Clínicos"
+* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.code = #01
+* section[=].entry = Reference(urn:uuid:15f466c9-c4be-48f3-a372-25ebff93b310)
 
-* section[Diagnostico].title = "Diagnostico."
-* section[Diagnostico].code.coding.system = "http://FALPCORE.com/CodeSystem/CSSDocumento1"
-* section[Diagnostico].code.coding.code = #05
-* section[Diagnostico].entry = Reference(EjDiagnosticoBundle)
+* section[+].title = "Procedimientos Quirurgicos."
+* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.code = #03
+* section[=].entry = Reference(urn:uuid:68da446d-8012-4f03-bd3a-e5a70773db44)
+
+* section[+].title = "Diagnostico."
+* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.code = #05
+* section[=].entry = Reference(urn:uuid:b8dd3cef-5b58-4ef1-a919-f8cb8e634187)
 
 
 

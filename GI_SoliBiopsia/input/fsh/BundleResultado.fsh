@@ -1,32 +1,34 @@
-Profile: BundleResultados
+Profile: BundleResultado
 Parent: Bundle
-Id: BundleResultados
-Title: "Bundle Resultados"
-Description: "Bundle par agrupar recursos para el envío de la respuesta del examen de biopsia"
+Id: BundleResultado
+Title: "Bundle Resultado"
+Description: "Bundle para agrupar recursos para el envío de la respuesta del examen de biopsia"
 
 * identifier 1.. MS
-* type 1..1 
-  * ^short = "Tipo de bundle" 
+* type 1..1
+  * ^short = "Tipo de Bundle" 
 * type from http://hl7.org/fhir/ValueSet/bundle-type (required)
 * type = #document
 
 * timestamp 1.. MS
 
 * entry 1.. MS
-  * ^slicing.discriminator.type = #profile
-  * ^slicing.discriminator.path = "resolve()"
+  * ^slicing.discriminator[0].type = #type
+  * ^slicing.discriminator[=].path = "resource"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "resource"
   * ^slicing.rules = #open
-  * ^slicing.description = "Entradas del bundle que refenciarán a las diferentes partes del documento de informe de biopsia."
+  * ^slicing.description = "Entradas del bundle que refenciarán a las diferentes seccciones del documento de soicitud de biopsia."
   * ^slicing.ordered = false 
 
-  * ^short = "entradas del documento"
-  * ^definition = "Entradas para documento de solicitud de biopsia"
+  * ^short = "secciones del documento"
+  * ^definition = "Entradas para documento de resultado de biopsia"
 
 * entry contains
     entryDocumento  1.. MS and
     entryPaciente  1.. MS and
     entryPrestador 0.. MS and
-    entryAntecedentesClinicos 0..1 MS and
+    entryCondiciónClinica 0..1 MS and
     entryExamenMacroscopico 0..1 MS and
     entryDescripcionMicroscopica 0..1 MS and
     entryDiagnosticoInicial 0..1 MS and
@@ -59,14 +61,14 @@ Description: "Bundle par agrupar recursos para el envío de la respuesta del exa
     * ^short = "Prestador informante"
   * resource only Profesional
 
-* entry[entryAntecedentesClinicos]
+* entry[entryCondiciónClinica]
   * ^short = "Antecedentes clínicos"
   * ^definition = "Antecedentes clinicos que presenta el paciente "
   * fullUrl 0..1 
     * ^short = "Uri de identificación dentro del Bundle"
   * resource 1..1
     * ^short = "Antecedentes Clínicos"
-  * resource only AmbitoClinico
+  * resource only CondicionClinica
 
 * entry[entryExamenMacroscopico]
   * ^short = "Examen macroscópico de la muestra"

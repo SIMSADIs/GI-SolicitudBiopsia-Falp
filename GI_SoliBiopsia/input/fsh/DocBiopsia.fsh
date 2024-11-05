@@ -1,5 +1,4 @@
-Alias: $CSSDocumento1 = http://FALPCORE.com/CodeSystem/CSSDocumento1
-
+Alias: $CSSDocumento1 = http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1
 
 Profile: DocumentoBiopsia
 Parent: Composition
@@ -21,7 +20,7 @@ Description: "Documento de entrada para solicitud de biopsia"
 
 //* ---- Paciente ----- 
 * subject 0..1
-* subject only Reference(Paciente)
+* subject only Reference(PacienteFalp)
 * subject MS
 * subject ^definition = "Paciente sobre el cual se ha generado este documento."
 * subject ^short = "Paciente sobre el cual se ha generado este documento."
@@ -42,7 +41,7 @@ Description: "Documento de entrada para solicitud de biopsia"
 
 //*--- profesional---
 * author 1..*
-* author only Reference(PrestadorCL)
+* author only Reference(PrestadorFalp)
 * author MS
 * author ^definition = "Prestador encargado de  generar  este documento."
 * author ^short = "Prestador  el cual genera el documento."
@@ -84,7 +83,7 @@ Description: "Documento de entrada para solicitud de biopsia"
 * section[AntecedentesClinicos] 
   * ^definition = "antecedentes clínicos del paciente."
   * code = $CSSDocumento1#01
-  * entry only Reference(AmbitoClinico)
+  * entry only Reference(CondicionClinica)
 
 * section[ProcedimientosQuirurgicos]
   * ^definition = "En esta sección van todos las descripciones generales  del examen macroscópico de la muestra."
@@ -95,3 +94,41 @@ Description: "Documento de entrada para solicitud de biopsia"
   * ^definition = "En esta sección va el resultado final del procedimiento."
   * code = $CSSDocumento1#05
   * entry only Reference(Diagnostico)
+
+
+Instance: EjDocumentoBiopsia
+Description: "Ejemplo de documento de solicitud de biopsia."
+InstanceOf: DocumentoBiopsia
+Usage: #example
+
+* identifier.value = "Documento"
+* status = #final 
+* type.coding.system = "http://loinc.org"
+* type.coding.code =  #66108-2
+* type.coding.display = "Bone Pathology biopsy report"
+
+* author = Reference(EjPrestadorIndividual)
+
+* date = "2024-05-20"
+//* title = "documento de Biopsia"
+
+
+* subject = Reference(EjPaciente)
+
+* event.period.start = "2024-04-20"
+* event.period.end = "2024-07-20"
+ 
+* section[AntecedentesClinicos].title = "Antecedentes Clínicos"
+* section[AntecedentesClinicos].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[AntecedentesClinicos].code.coding.code = #01
+* section[AntecedentesClinicos].entry.display = "AntecedentesClinicos"
+
+* section[ProcedimientosQuirurgicos].title = "Procedimientos Quirurgicos"
+* section[ProcedimientosQuirurgicos].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[ProcedimientosQuirurgicos].code.coding.code = #03
+* section[ProcedimientosQuirurgicos].entry.display = "ProcedimientosQuirurgicos"
+
+* section[Diagnostico].title = "Diagnostico"
+* section[Diagnostico].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[Diagnostico].code.coding.code = #05
+* section[Diagnostico].entry = Reference(EjDiagnostico)

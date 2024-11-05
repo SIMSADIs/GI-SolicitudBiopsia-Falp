@@ -7,7 +7,6 @@ Description: "Este es un perfil donde se encontrarán los datos de la muestra"
 * accessionIdentifier 1..1
 * type 1..1 
 
-
 * receivedTime 1..1
 * request 1..1
 * collection 1..1
@@ -25,16 +24,3 @@ Description: "Este es un perfil donde se encontrarán los datos de la muestra"
 
 * note 0..* 
 * subject 1..1
-
-
-
-
-
-
-
-
-
-
-
-
-

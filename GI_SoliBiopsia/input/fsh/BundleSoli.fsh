@@ -18,20 +18,18 @@ Description: "Bundle para agrupar recursos para el envío de la solicitud de bio
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "resource"
   * ^slicing.rules = #open
-  * ^slicing.description = "Entradas del bundle que refenciarán a las doferentes partes del documento de soicitud de biopsia."
+  * ^slicing.description = "Entradas del bundle que refenciarán a las diferentes secciones del documento de soicitud de biopsia."
   * ^slicing.ordered = false 
 
-  * ^short = "entradas del documento"
+  * ^short = "Secciones del documento"
   * ^definition = "Entradas para documento de solicitud de biopsia"
 
-//  * code 1..1 
-//  * code from VSSEntradasSolicitud (extensible)
 
 * entry contains 
     entryDocumento  1..1 MS and
     entryPaciente  1..1 MS and
     entryPrestador 0..1 MS and
-    entryAntecedentesClinicos 0..* MS and
+    entryCondicionClinicos 0..* MS and
     entryProcedimientosQuirurgicos 0..* MS and 
     entryDiagnostico 0..*
 
@@ -51,7 +49,7 @@ Description: "Bundle para agrupar recursos para el envío de la solicitud de bio
     * ^short = "Uri de identificación dentro del Bundle"
   * resource 1..1
     * ^short = "Paciente que se realizará la biopsia"
-  * resource only Paciente
+  * resource only PacienteFalp
 
 * entry[entryPrestador]
   * ^short = "Prestador que solicita la biopsia"
@@ -60,16 +58,16 @@ Description: "Bundle para agrupar recursos para el envío de la solicitud de bio
     * ^short = "Uri de identificación dentro del Bundle"
   * resource 1..1
     * ^short = "Prestador solicitante"
-  * resource only Profesional
+  * resource only PrestadorFalp
 
-* entry[entryAntecedentesClinicos]
+* entry[entryCondicionClinicos]
   * ^short = "Antecedentes clínicos"
   * ^definition = "Antecedentes clinicos que presenta el paciente "
   * fullUrl 0..1 
     * ^short = "Uri de identificación dentro del Bundle"
   * resource 1..1
     * ^short = "Antecedentes Clínicos"
-  * resource only AmbitoClinico
+  * resource only CondicionClinica
 
 * entry[entryProcedimientosQuirurgicos]
   * ^short = "Procedimiento quirúrgico a realizar"

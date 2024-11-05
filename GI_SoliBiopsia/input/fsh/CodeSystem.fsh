@@ -17,7 +17,7 @@ Description: "Este es un codeSystem en base a las secciones definidas en el docu
 * #06  "DiagnosticoInicial"
 * #07 "DiagnosticoFinal"
 
-
+/*
 CodeSystem: CSSIdentificador
 Id: CSSIdentificador
 Title: "Identificador"
@@ -30,7 +30,7 @@ Description: "Este es un codeSystem en base a los posibles opciones de identific
 
 * #01 "RUN"
 * #02 "Pasaporte"
-
+*/
 
 CodeSystem: CSSEstadoClinico
 Id: CSSEstadoClinico

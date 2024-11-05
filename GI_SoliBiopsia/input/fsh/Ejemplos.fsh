@@ -1,38 +1,161 @@
-// 1. Ejemplo de paciente 
-Instance : EjPaciente
-Title : "Ejemplo de Recurso Paciente"
-Description: "Paciente ficticio nacional CI Chilena, sin sistema de validación \"http://regcivil.cl/Validacion/RUN\" ficticio, cuyo nombre se decribe mediante el oficial y uno social. La dirección tampoco es real."
-InstanceOf : Paciente
-Usage : #example
-
-//Identificación por Cédula Chilena
-* id = "P1"
-* identifier.use = #official    //obligado
-
-* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodigoDNI."
-* identifier.type.coding.code = #NNCHL
-* identifier.type.coding.display = "RUN"
+Instance: EjPaciente
+InstanceOf: PacienteFalp 
+Usage: #Example
+Title: "Example Patient"
+Description: "An example Patient instance."
 
 
-* identifier.value = "66.666.666-k"
+* extension[Sexobiologico].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSSexoBiologico"
+* extension[Sexobiologico].valueCodeableConcept.coding = #1 "Hombre"
 
-//registro de paciente activo
+* extension[Nacionalidad].valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais"
+* extension[Nacionalidad].valueCodeableConcept.coding.code = #152 "Chile"
+
+
+* name[NombreOficial].family = "Perez"
+* name[NombreOficial].given[0] = "Juan"
+* name[NombreOficial].use = #official
+
+* birthDate = "1980-01-01"
+
+* identifier.use = #secondary
+* identifier.type = #01
+* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
+* identifier.type.coding.display = "Rol Único Nacional o RUN"
+* identifier.value = "30.696.558-7"
+
 * active = true
 
-//Nombre Oficial
-* name[NombreOficial].use = #official
-* name[NombreOficial].family = "Vader"
-* name[NombreOficial].family.extension[segundoApellido].valueString	 = "Perez" //uso de la extensión
-* name[NombreOficial].given[0] = "Anaqueen"
-* name[NombreOficial].given[+] = "Darth"
+* address.use = #home
+* address.line[0] = "Calle 6 Norte, 52, pieza 802"
 
-//sexo registrado al nacer y fecha de nacimiento
-* gender = #male
-* birthDate = "1970-03-24"
+* address.city.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl"
+* address.city.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL"
+* address.city.extension.valueCodeableConcept.coding.code = #13101 "Santiago Centro"
 
-* extension[SexoBiologico].url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoBiologico"
-* extension[SexoBiologico].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
-* extension[SexoBiologico].valueCodeableConcept.coding.code = #male
+* address.district.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl"
+* address.district.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL"
+* address.district.extension.valueCodeableConcept.coding.code = #131 "Santiago"
+
+* address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
+
+
+* contact.relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0131"
+* contact.relationship.coding.code = #N "Next of Kin"
+
+* contact.address.use = #home
+* contact.address.line[0] = "Gregorio Mira 123" 
+
+* contact.address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* contact.address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* contact.address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
+
+
+* contact.name.use =  #official
+* contact.name.family = "Gonzalez"
+* contact.name.given[0] = "Maria"
+ 
+* contact.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdContacto"
+
+// esto sería el slice de tutID obligatorio 
+* contact.extension.extension.url = "tutId"
+* contact.extension.extension.valueIdentifier.use = #official "Official"
+* contact.extension.extension.valueIdentifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* contact.extension.extension.valueIdentifier.type.coding.code = #3
+* contact.extension.extension.valueIdentifier.type.coding.display = "PPN"
+* contact.extension.extension.valueIdentifier.system = "http://regcivil.cl/Validacion/RUN"
+* contact.extension.extension.valueIdentifier.value = "12.435.789-k"
+
+* contact.telecom[0].system = #phone
+* contact.telecom[0].value = "+56912345678"
+* contact.telecom[0].use = #mobile
+* contact.telecom[0].system = #email
+* contact.telecom[0].value = "maria.gonzalez@example.com"
+* contact.telecom[0].use = #home
+
+* contact.telecom[0].extension[MyTelecomExtension].valueString = "ejemplo@correoaompañante.cl"
+
+
+
+// PRESTADOR INDIVIDUAL  //
+Instance: EjPrestadorIndividual
+InstanceOf: PrestadorFalp
+Usage: #Example 
+Title: "Example Prestador Individual"
+Description: "An example Prestador individual instance." 
+
+* id = "example-PrestadorIndividual"
+* name.family = "Gonzaléz"
+* name.given = "Pedro"
+* birthDate = "1980-12-25" 
+
+
+* identifier.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* identifier.value = "15.666.378-2"
+* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* identifier.type.coding.code = #2
+* identifier.type.coding.display = "RNPI"
+
+* address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
+
+* extension[Mension].valueString = "NEFROLOGO" 
+
+* qualification[Cert].identifier.value = "cert"
+* qualification[Cert].code.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTituloProfesional"
+* qualification[Cert].code.coding.code = #1
+* qualification[Cert].code.text = "Certificado(s)"
+
+* qualification[SubEsp].identifier.value = "subesp"
+* qualification[SubEsp].code.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSEspecialidadMedica"
+* qualification[SubEsp].code.coding.code = #4
+* qualification[SubEsp].code.text = "SubEspecialidad(es)"
+
+
+
+// ORGANIZACIÓN // 
+Instance: EjOrganizacion
+InstanceOf: Organizacion
+Usage: #Example 
+Title: "Example-Organización"
+Description: "An example Organización instance."  
+
+* id = "example-Organizacion"
+* extension[TipoSistemaSalud].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoSistemaSalud"
+* extension[TipoSistemaSalud].valueCodeableConcept.coding = #1 "Público"
+
+* identifier[0].system = "http://example.org/identifiers"
+* identifier[0].value = "7777777-7"
+
+//* extension[TipoEstablecimientosPublicos].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSTipoEstablecimientosPublicos"
+* extension[TipoEstablecimientosPublicos].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoEstablecimientosPublicos"
+* extension[TipoEstablecimientosPublicos].valueCodeableConcept.coding.code = #4 "Establecimientos Hospitalarios"
+
+//* extension[NivelAtencion].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSNivelAtencion"
+* extension[NivelAtencion].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSNivelAtencion"
+* extension[NivelAtencion].valueCodeableConcept.coding.code = #3 "Nivel Terciario"
+
+//* extension[TipoPertinenciaEstab].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSTipoPertinenciaEstab"
+* extension[TipoPertinenciaEstab].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoPertinenciaEstab"
+* extension[TipoPertinenciaEstab].valueCodeableConcept.coding.code = #1 "Perteneciente al Sistema Nacional de Servicios de Salud"
+
+* address.city.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl"
+* address.city.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL"
+* address.city.extension.valueCodeableConcept.coding.code = #13101 "Santiago Centro"
+
+* address.district.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl"
+* address.district.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL"
+* address.district.extension.valueCodeableConcept.coding.code = #131 "Santiago"
+
+* address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
+
+
+
 
 //2.Ejemplo de diágnostico
 Instance : EjDiagnostico
@@ -45,7 +168,7 @@ Usage : #example
 * id = "identificador"
 * identifier.use = #official    //obligado
 
-* identifier.type.coding.system = "https://hl7.org/fhir/R4/v2/0203"
+* identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier.type.coding.code = #SNO
 * identifier.type.coding.display = "Serial Number"
 
@@ -70,149 +193,6 @@ La dermis muestra un infiltrado inflamatorio crónico con predominancia de linfo
 * presentedForm.url = 	"http://hl7.org/fhir/ValueSet/languages"
 
 
-
-
-//3.Ejemplo de documento de solicitud de biopsia
-Instance: EjDocumentoBiopsia
-Description: "Ejemplo de documento de solicitud de biopsia."
-InstanceOf: DocumentoBiopsia
-Usage: #example
-
-* identifier.value = "Documento"
-* status = #final 
-* type.coding.system = "http://loinc.org"
-* type.coding.code =  #66108-2
-* type.coding.display = "Bone Pathology biopsy report"
-
-* subject.display = "Paciente"
-
-* date = "2024-05-20"
-//* title = "documento de Biopsia"
-
-
-* author.display = "profesional"
-
-* event.period.start = "2024-04-20"
-* event.period.end = "2024-07-20"
- 
-* section[AntecedentesClinicos].title = "Antecedentes Clínicos"
-* section[AntecedentesClinicos].code.coding.system = "http://FALPCORE.com/CodeSystem/CSSDocumento1"
-* section[AntecedentesClinicos].code.coding.code = #01
-* section[AntecedentesClinicos].entry.display = "AntecedentesClinicos"
-
-* section[ProcedimientosQuirurgicos].title = "Procedimientos Quirurgicos"
-* section[ProcedimientosQuirurgicos].code.coding.system = "http://FALPCORE.com/CodeSystem/CSSDocumento1"
-* section[ProcedimientosQuirurgicos].code.coding.code = #03
-* section[ProcedimientosQuirurgicos].entry.display = "ProcedimientosQuirurgicos"
-
-* section[Diagnostico].title = "Diagnostico"
-* section[Diagnostico].code.coding.system = "http://FALPCORE.com/CodeSystem/CSSDocumento1"
-* section[Diagnostico].code.coding.code = #05
-* section[Diagnostico].entry.display = "Diagnostico"
-
-
-
-//4.Ejemplo de organización 
-
-Instance : EjOrganizacionCL
-Title : "Ejemplo de organización que solicita examen."
-Description: "Institución u organización que solicita la toma del examen."
-InstanceOf : Organizacion
-Usage : #example
-
-//* status = #active  //obligatorio 
-* name = "Centro de Salud FALP"
-* address.line = "Av El amanecer, 657, Comuna de Las Cruces."
-* telecom.system = #phone
-* telecom.use = #mobile
-* telecom.value = "33-6548776"
-
-//5. Ejemplo de Documento Informe de biopsia
-
-Instance: EjDocumentoResultados 
-Description: "Ejemplo de documento de resultados de Biopsia"
-InstanceOf: DocumentoResultados
-Usage: #example
-
-* identifier.value = "Documento de resultados"
-* status = #final 
-* type.coding.system = "http://loinc.org"
-* type.coding.code =  #66121-5 
-* type.coding.display = "Biopsy Report"
-* type = #66121-5
-
-//* subject.reference = "Paciente"
-* subject = Reference(EjPaciente)
-
-* date = "2024-05-12"
-
-* section.code = #01
-//* author.reference = "profesional"
-* author = Reference(EjProfesional)
-* section.title = "Documento de resultado de biopsia"
-
-* event.period.start = "2024-04-13"
-* event.period.end = "2024-07-23"
-
-* section[AntecedentesClinicos].title = "Antecedentes Clínicos."
-* section[AntecedentesClinicos].code.coding.code = #01
-* section[AntecedentesClinicos].entry.display = "Ámbitoclinico"
-
-* section[ExamenMacroscopico].title = "Examen Macróscopico."
-* section[ExamenMacroscopico].code.coding.code = #02
-* section[ExamenMacroscopico].entry.display = "Servicio Solicitante."
-
-* section[DescripcionMicroscopica].title = "DescripciónMicroscópica."
-* section[DescripcionMicroscopica].code.coding.code = #04
-* section[DescripcionMicroscopica].entry.display = "Muestra"
-
-* section[DiagnosticoInicial].title = "Diagnóstico Inicial."
-* section[DiagnosticoInicial].code.coding.code = #06
-* section[DiagnosticoInicial].entry.display = "DiagnósticoInicial"
-
-* section[DiagnosticoFinal].title = "Diagnóstico Final."
-* section[DiagnosticoFinal].code.coding.code = #07
-* section[DiagnosticoFinal].entry.display = "DiagnósticoFinal"
-
-
-
-// 6. Ejemplo de prestador
-Instance: EjProfesional
-Description: "Ejemplo de Prestador"
-InstanceOf: Profesional
-Usage: #example
-//Identificación por Cédula Chilena
-* id = "P1"
-* identifier.use = #official    //obligado
-
-* identifier.type.coding.system = "https://hl7.org/fhir/R4/v2/0203/index.html"
-* identifier.type.coding.code = #SNO
-* identifier.type.coding.display = "Serial Number"
-
-* identifier.system = "http://regcivil.cl/Validacion/RUN"
-* identifier.value = "666 234 653 234"
-
-//registro de paciente activo
-* active = true
-//Nombre Oficial
-* name.use = #official
-* name.family = "viaux"
-
- //dos contactos, un celular y un email
-* telecom.system = #phone
-* telecom.use = #mobil
-* telecom.value = "943561833"
-
-* telecom.system = #email
-* telecom.use = #work
-* telecom.value = "Darth@imperio.com"
-* qualification.identifier.system = "http://terminology.hl7.org/CodeSystem/v2-0360|2.7"
-* qualification.code.coding = #AS
-* qualification.identifier.value = "Associate of Science"
-* gender = #male
-* birthDate = "1970-03-24"
-
-  
 // 7.Ejemplo de Muestra
 Instance : EjMuestra
 Title : "Ejemplo de muestra biológica para procedimiento."
@@ -255,7 +235,6 @@ Usage : #example
 
 
 
-
 // 8.Ejemplo de servicio Solicitante
 Instance : EjServicioSolicitante
 Title : "Ejemplo de Servicio Solicitante"
@@ -265,8 +244,7 @@ Usage : #example
 
 * id = "identificador"
 
-//http://hl7.org/fhir/ValueSet/identifier-use|4.0.1
-* identifier.type.coding.system = "http://hl7.org/fhir/identifier-use" //yo creo q se va a necesitar un codesystem para esto
+* identifier.type.coding.system = "http://hl7.org/fhir/identifier-use" 
 * identifier.type.coding.code = #official
 * status = #active
 * subject.display = "Paciente"
@@ -297,11 +275,8 @@ Usage : #example
 * id = "identificador"
 * identifier.use = #official    //obligado
 
-* identifier.type.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSIdentificador."
-* identifier.type.coding.code = #01
-* identifier.type.coding.display = "RUN"
 
-* identifier.value = "20.666.234-k"
+* identifier.value = "Procedimiento"
 * subject.display = "Paciente"
 * status = #preparation
 * report.type = "diagnostico"
@@ -311,7 +286,7 @@ Usage : #example
 
 
 // 10. Ejemplo de Ámbito CLínico
-
+/*
 Instance : EjAmbitoClinico
 Title : "Ejemplo de ámbito Clínico."
 Description: "descripción de datos correspondientes al Ámbito Clínico."
@@ -323,7 +298,7 @@ Usage : #example
 //* code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDiagnostico"
 //* code.coding.code = #03
 //* code.coding.display = "cáncer de mama"
-* section.code.coding.system = "https://biomedica.uv.cl/fhir/CodeSystem/CSSDiagnostico"
+* section.code.coding.system = "https://FALPBIOPSIA.uv.cl/fhir/CodeSystem/CSSDiagnostico"
 * section.code = #03
 * date = "2023-03-24"
 * id = "CondicionClinica"
@@ -339,4 +314,4 @@ Usage : #example
 * extension[SospechaDiagnosticada].valueCode = #confirmed
 * type.text = "Ámbito Clínico"
 * status = #final
-
+*/

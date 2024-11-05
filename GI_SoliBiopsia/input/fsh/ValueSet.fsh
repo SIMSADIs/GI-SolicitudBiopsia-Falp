@@ -11,6 +11,7 @@ Description: "secciones que tendrá el documento de entrada de solicitud de biop
 * codes from system CSSDocumento1
 //* codes from system CSSDocumento1
 
+/*
 ValueSet: VSSIdentificador
 Id: VSSIdentificador
 Title: "secciones por códigos"
@@ -22,6 +23,7 @@ Description: "Opciones posibles de identifcadores."
 
 * codes from system CSSIdentificador
 //* codes from system CSSIdentificador
+*/
 
 ValueSet: VSSEstadoClinico
 Id: VSSEstadoClinico

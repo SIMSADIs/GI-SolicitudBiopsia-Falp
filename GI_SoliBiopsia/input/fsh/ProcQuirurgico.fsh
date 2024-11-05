@@ -1,4 +1,3 @@
-
 Profile : ProcedimientosQuirurgicos 
 Parent :   Procedure
 Description: "Este es un perfil donde se encontrarán los procedimientos quierúrgicos."
@@ -15,12 +14,9 @@ Description: "Este es un perfil donde se encontrarán los procedimientos quierú
 * status = #preparation
 * status from http://hl7.org/fhir/ValueSet/event-status
 
-
-
-
 * subject 1..1
 * subject MS 
-* subject only Reference(Paciente)
+* subject only Reference(PacienteFalp)
 
 
 * performed[x] 0..1
@@ -31,12 +27,3 @@ Description: "Este es un perfil donde se encontrarán los procedimientos quierú
 * note 0..1 
   * ^short = "anotaciones"
   * ^definition = "en esta sección se añade información adicional."
-
-
-
-
-
-
-
-
-
