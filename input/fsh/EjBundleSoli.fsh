@@ -88,7 +88,7 @@ Usage : #inline
 // esto sería el slice de tutID obligatorio 
 * contact.extension.extension.url = "tutId"
 * contact.extension.extension.valueIdentifier.use = #official "Official"
-* contact.extension.extension.valueIdentifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* contact.extension.extension.valueIdentifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
 * contact.extension.extension.valueIdentifier.type.coding.code = #3
 * contact.extension.extension.valueIdentifier.type.coding.display = "PPN"
 * contact.extension.extension.valueIdentifier.system = "http://regcivil.cl/Validacion/RUN"
