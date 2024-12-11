@@ -30,7 +30,7 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
     entryPrestador 0..1 MS and
     entryCondicionClinica 0..* MS and
     entryExamenMacroscopico 0..* MS and
-    entryDescripcionMicroscopica 0..* MS and
+/*    entryDescripcionMicroscopica 0..* MS and */
     entryDiagnosticoInicial 0..1 MS and
     entryDiagnosticoFinal 0..1 MS
 
@@ -78,7 +78,7 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
   * resource 1..1
     * ^short = "Examen macroscópico"
   * resource only Muestra
-
+/*
 * entry[entryDescripcionMicroscopica]
   * ^short = "Descripción microscópica de la muestra"
   * ^definition = "Descripciones específicas de la muestra"
@@ -87,7 +87,7 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
   * resource 1..1
     * ^short = "Descripción microscópica"
   * resource only Muestra
-
+*/
 * entry[entryDiagnosticoInicial]
   * ^short = "Diagnóstico inicial"
   * ^definition = "Diagnóstico del prestador antes de realizar el examen de biopsia"
