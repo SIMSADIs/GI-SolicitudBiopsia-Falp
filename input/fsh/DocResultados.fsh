@@ -59,7 +59,7 @@ Description: "Documento de salida de informe con resultados del procedimiento re
 */
 
 * section 0..
-* section ^slicing.discriminator[0].type = #pattern
+* section ^slicing.discriminator[0].type = #value
 * section ^slicing.discriminator[=].path = "code"
 * section ^slicing.ordered = false
 * section ^slicing.rules = #open

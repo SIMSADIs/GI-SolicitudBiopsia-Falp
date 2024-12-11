@@ -185,6 +185,7 @@ Instance: EjDiagnosticoFinal
 InstanceOf: DiagnosticoFinal
 Usage: #example
 Title: "EjDiagnosticoBundle"
+Description: "Ejemplo de perfil diagnóstico final"
 
 * subject = Reference(EjPaciente)
 
@@ -235,7 +236,7 @@ La dermis muestra un infiltrado inflamatorio crónico con predominancia de linfo
 Instance : EjMuestra
 Title : "Ejemplo de muestra biológica para procedimiento."
 Description: "Ejemplo de datos necesarios muestra de procedimiento."
-InstanceOf : Specimen //cambiar pq lo dejaron mal
+InstanceOf : Muestra //cambiar pq lo dejaron mal
 Usage : #example
 
 * id = "identificador"

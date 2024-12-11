@@ -64,7 +64,7 @@ Description: "Documento de entrada para solicitud de biopsia"
 
 
 * section 0..*
-* section ^slicing.discriminator[0].type = #pattern
+* section ^slicing.discriminator[0].type = #value
 * section ^slicing.discriminator[=].path = "code"
 * section ^slicing.ordered = false
 * section ^slicing.rules = #open
