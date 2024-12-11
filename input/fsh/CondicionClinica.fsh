@@ -15,8 +15,8 @@ Description: "Condición clinica que presenta el paciente"
 
 * category 1..1 MS
   * ^short = "Categoria del tipo condition. Permite diferenciar el perfil dentro del bundle"
-* category.coding.system from http://hl7.org/fhir/ValueSet/condition-category
-* category.coding.code = #problem-list-item
+* category from http://hl7.org/fhir/ValueSet/condition-category
+* category = #problem-list-item
 
 * subject only Reference(Paciente)
 
