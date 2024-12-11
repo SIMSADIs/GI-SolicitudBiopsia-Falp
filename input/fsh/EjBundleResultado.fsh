@@ -260,44 +260,6 @@ Title: "EjMuestra"
 * status = #available
 * note.text = "Las células principales del estómago son:  zimogénicas, peptídicas,​ las cuales son un tipo de célula que forman parte de las glándulas gástricas del estómago, y están encargadas de la secreción de pepsinógeno, lipasa gástrica y quimosina." 
 
-
-/*Instance: 9d8f7179-7ad8-4896-b0c0-4b960fc80ead
-InstanceOf: Muestra
-Usage: #inline
-Title: "EjMuestra"
-
-* identifier.use = #official    //obligado
-
-* identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
-* identifier.type.coding.code = #ACSN
-* identifier.type.coding.display = "Accession ID"
-* identifier.value = "644545"
-
-* type.coding.system  = "http://terminology.hl7.org/CodeSystem/v2-0487"
-* type.coding.code = #ABS
-* type.coding.display = "Abscess"
-
-* accessionIdentifier.system = "http://snomed.info/sct"
-* accessionIdentifier.value = "imágenes"
-* accessionIdentifier.type.coding.system = "http://snomed.info/sct"
-* accessionIdentifier.type.coding.code = #111002
-* accessionIdentifier.type.coding.display = "Parathyroid"
-
-* receivedTime = "2024-06-22T14:15:30-03:00"
-* parent.display = "Estómago"
-* request.display = "servicio solicitante"
-* collection
-  * collector.display = "Profesional"
-  * quantity.value = 1
-
-* container.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0487"
-* container.type.coding.code = #CST
-* container.type.coding.display = "Fluid, Cyst"
-
-* subject = Reference(urn:uuid:747e64e4-db06-48f3-9692-cf1bf30f0100)
-* status = #available
-* note.text = "Las células principales del estómago son:  zimogénicas, peptídicas,​ las cuales son un tipo de célula que forman parte de las glándulas gástricas del estómago, y están encargadas de la secreción de pepsinógeno, lipasa gástrica y quimosina." 
-*/
 // Diagnostico inicial
 Instance: c1ab1686-ebbd-4ae2-977b-9a1ed3963382
 InstanceOf: DiagnosticoInicial
@@ -372,7 +334,12 @@ Usage: #inline
 * event.period.start = "2024-04-13"
 * event.period.end = "2024-07-23"
 
-* section[0].title = "Antecedentes Clínicos."
+* section[0].title = "Servicio solicitante"
+* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.code = #00
+* section[=].entry = Reference(urn:uuid:e0132bb4-f852-40d5-bafd-a1575ec61212)
+
+* section[+].title = "Antecedentes Clínicos."
 * section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #01
 * section[=].entry = Reference(urn:uuid:7dcd7289-e637-4c9d-b933-eefdb43d6e67)

@@ -9,21 +9,27 @@ Description: "Ejemplo de estructura de un perfil Bundle para la solicitud de bio
 * type = #document
 
 * timestamp = "2024-05-28T22:12:21Z"
-
-* entry[0].fullUrl = "urn:uuid:871153f1-383d-4cf5-bcf2-5ff175de4657"
-* entry[=].resource = 871153f1-383d-4cf5-bcf2-5ff175de4657
-* entry[+].fullUrl = "urn:uuid:4f212000-9b14-4b3a-b055-466fc34a01c1"
-* entry[=].resource = 4f212000-9b14-4b3a-b055-466fc34a01c1
-* entry[+].fullUrl = "urn:uuid:1d1a47c3-611b-4a59-8f06-f384eb4b71e7"
-* entry[=].resource = 1d1a47c3-611b-4a59-8f06-f384eb4b71e7
-* entry[+].fullUrl = "urn:uuid:d7b29de6-5dc7-4350-9ce8-363274c72a5a"
-* entry[=].resource = d7b29de6-5dc7-4350-9ce8-363274c72a5a
-* entry[+].fullUrl = "urn:uuid:15f466c9-c4be-48f3-a372-25ebff93b310"
-* entry[=].resource = 15f466c9-c4be-48f3-a372-25ebff93b310
-* entry[+].fullUrl = "urn:uuid:68da446d-8012-4f03-bd3a-e5a70773db44"
-* entry[=].resource = 68da446d-8012-4f03-bd3a-e5a70773db44
-* entry[+].fullUrl = "urn:uuid:b8dd3cef-5b58-4ef1-a919-f8cb8e634187"
-* entry[=].resource = b8dd3cef-5b58-4ef1-a919-f8cb8e634187
+// Documento
+* entry[entryDocumento].fullUrl = "urn:uuid:871153f1-383d-4cf5-bcf2-5ff175de4657"
+* entry[entryDocumento].resource = 871153f1-383d-4cf5-bcf2-5ff175de4657
+// PAcente
+* entry[entryPaciente].fullUrl = "urn:uuid:4f212000-9b14-4b3a-b055-466fc34a01c1"
+* entry[entryPaciente].resource = 4f212000-9b14-4b3a-b055-466fc34a01c1
+// Prestador
+* entry[entryPrestador].fullUrl = "urn:uuid:1d1a47c3-611b-4a59-8f06-f384eb4b71e7"
+* entry[entryPrestador].resource = 1d1a47c3-611b-4a59-8f06-f384eb4b71e7
+// Servcicio solicintante
+* entry[entryServSolicitante].fullUrl = "urn:uuid:d7b29de6-5dc7-4350-9ce8-363274c72a5a"
+* entry[entryServSolicitante].resource = d7b29de6-5dc7-4350-9ce8-363274c72a5a
+// CondicionClinica
+* entry[entryCondicionClinicos].fullUrl = "urn:uuid:15f466c9-c4be-48f3-a372-25ebff93b310"
+* entry[entryCondicionClinicos].resource = 15f466c9-c4be-48f3-a372-25ebff93b310
+// ProcedimientosQuirurgicos
+* entry[entryProcedimientosQuirurgicos].fullUrl = "urn:uuid:68da446d-8012-4f03-bd3a-e5a70773db44"
+* entry[entryProcedimientosQuirurgicos].resource = 68da446d-8012-4f03-bd3a-e5a70773db44
+// Diagnóstico
+* entry[entryDiagnostico].fullUrl = "urn:uuid:b8dd3cef-5b58-4ef1-a919-f8cb8e634187"
+* entry[entryDiagnostico].resource = b8dd3cef-5b58-4ef1-a919-f8cb8e634187
 
 Instance : 4f212000-9b14-4b3a-b055-466fc34a01c1
 Title : "Ejemplo de Recurso Paciente"
@@ -142,8 +148,8 @@ Usage : #inline
 
 * name = "Servicio de dermatología"
 
-* providedBy.display = "HsopitalX"
-//* providedBy = Reference(urn:uuid:49f5fbe9-26d4-48c4-8d90-a7216aa58b0a)
+//* providedBy.display = "HsopitalX"
+* providedBy = Reference(urn:uuid:49f5fbe9-26d4-48c4-8d90-a7216aa58b0a)
 
 Instance: 49f5fbe9-26d4-48c4-8d90-a7216aa58b0a
 InstanceOf: Organizacion
@@ -301,7 +307,12 @@ Usage: #inline
 * relatesTo.targetIdentifier.system = "urn:oid:2.16.152.1.10.1" //identificador ficticio; el OID 2.16.152.1 es del MINSAL, para identificar a Chile
 * relatesTo.targetIdentifier.value = "IPS-CL-2024-001"
 
-* section[0].title = "Antecedentes Clínicos"
+* section[0].title = "Servicio solicitante"
+* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.code = #00
+* section[=].entry = Reference(urn:uuid:d7b29de6-5dc7-4350-9ce8-363274c72a5a)
+
+* section[+].title = "Antecedentes Clínicos"
 * section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #01
 * section[=].entry = Reference(urn:uuid:15f466c9-c4be-48f3-a372-25ebff93b310)
