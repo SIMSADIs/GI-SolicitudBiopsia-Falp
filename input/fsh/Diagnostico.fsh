@@ -14,8 +14,9 @@ Description: "Este es un perfil para realizar diagnóstico previo al examen de b
   * coding.code = #provisional
 
 * category 1..1
-* category from http://hl7.org/fhir/ValueSet/condition-category
-* category = #encounter-diagnosis
+  * ^short = "Categoria del tipo condition. Permite diferenciar el perfil dentro del bundle"
+* category.coding.system from http://hl7.org/fhir/ValueSet/condition-category
+* category.coding.code = #encounter-diagnosis
 
 * subject only Reference(Paciente)
 
@@ -42,8 +43,9 @@ Description: "Este es un perfil para realizar diagnóstico según examen de biop
   * coding.code = #confirmed
 
 * category 1..1
-* category from http://hl7.org/fhir/ValueSet/condition-category
-* category = #encounter-diagnosis
+  * ^short = "Categoria del tipo condition. Permite diferenciar el perfil dentro del bundle"
+* category.coding.system from http://hl7.org/fhir/ValueSet/condition-category
+* category.coding.code = #encounter-diagnosis
 
 * subject only Reference(Paciente)
 
