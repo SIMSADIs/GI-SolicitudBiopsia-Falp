@@ -104,8 +104,8 @@ Usage : #inline
 * contact.extension.extension.url = "tutId"
 * contact.extension.extension.valueIdentifier.use = #official "Official"
 * contact.extension.extension.valueIdentifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
-* contact.extension.extension.valueIdentifier.type.coding.code = #3
-* contact.extension.extension.valueIdentifier.type.coding.display = "PPN"
+* contact.extension.extension.valueIdentifier.type.coding.code = #01
+* contact.extension.extension.valueIdentifier.type.coding.display = "RUN"
 * contact.extension.extension.valueIdentifier.system = "http://regcivil.cl/Validacion/RUN"
 * contact.extension.extension.valueIdentifier.value = "12.435.789-k"
 
@@ -133,8 +133,8 @@ Description: "Ejemplo de perfil prestador individual para ejemplo de bundle de d
 * identifier.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
 * identifier.value = "15.666.378-2"
 * identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
-* identifier.type.coding.code = #2
-* identifier.type.coding.display = "RNPI"
+* identifier.type.coding.code = #01
+* identifier.type.coding.display = "RUN"
 
 * address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
 * address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"

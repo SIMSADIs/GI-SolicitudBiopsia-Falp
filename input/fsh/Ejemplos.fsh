@@ -21,7 +21,7 @@ Description: "An example Patient instance."
 * identifier.use = #secondary
 * identifier.type = #01
 * identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
-* identifier.type.coding.display = "Rol Único Nacional o RUN"
+* identifier.type.coding.display = "RUN"
 * identifier.value = "30.696.558-7"
 
 * active = true
@@ -63,8 +63,8 @@ Description: "An example Patient instance."
 * contact.extension.extension.url = "tutId"
 * contact.extension.extension.valueIdentifier.use = #official "Official"
 * contact.extension.extension.valueIdentifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
-* contact.extension.extension.valueIdentifier.type.coding.code = #3
-* contact.extension.extension.valueIdentifier.type.coding.display = "PPN"
+* contact.extension.extension.valueIdentifier.type.coding.code = #01
+* contact.extension.extension.valueIdentifier.type.coding.display = "RUN"
 * contact.extension.extension.valueIdentifier.system = "http://regcivil.cl/Validacion/RUN"
 * contact.extension.extension.valueIdentifier.value = "12.435.789-k"
 
@@ -82,7 +82,7 @@ Description: "An example Patient instance."
 // PRESTADOR INDIVIDUAL  //
 Instance: EjPrestadorIndividual
 InstanceOf: PrestadorIndividual
-Usage: #Example 
+Usage: #inline 
 Title: "Example Prestador Individual"
 Description: "An example Prestador individual instance." 
 
@@ -92,11 +92,11 @@ Description: "An example Prestador individual instance."
 * birthDate = "1980-12-25" 
 
 
-* identifier.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* identifier.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
 * identifier.value = "15.666.378-2"
-* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
-* identifier.type.coding.code = #2
-* identifier.type.coding.display = "RNPI"
+* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
+* identifier.type.coding.code = #01
+* identifier.type.coding.display = "RUN"
 
 * address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
 * address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
