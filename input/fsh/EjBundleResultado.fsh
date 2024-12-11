@@ -159,7 +159,8 @@ Usage : #inline
 
 * name = "Servicio de dermatología"
 
-* providedBy = Reference(urn:uuid:a4f08ee1-bdbf-485e-9c14-deb0ceeb1aa3)
+* providedBy.display = "HospitalX"
+//* providedBy = Reference(urn:uuid:a4f08ee1-bdbf-485e-9c14-deb0ceeb1aa3)
 
 Instance: a4f08ee1-bdbf-485e-9c14-deb0ceeb1aa3
 InstanceOf: Organizacion
