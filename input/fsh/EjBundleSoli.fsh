@@ -142,7 +142,8 @@ Usage : #inline
 
 * name = "Servicio de dermatología"
 
-* providedBy = Reference(urn:uuid:49f5fbe9-26d4-48c4-8d90-a7216aa58b0a)
+* providedBy.display = "HsopitalX"
+//* providedBy = Reference(urn:uuid:49f5fbe9-26d4-48c4-8d90-a7216aa58b0a)
 
 Instance: 49f5fbe9-26d4-48c4-8d90-a7216aa58b0a
 InstanceOf: Organizacion
