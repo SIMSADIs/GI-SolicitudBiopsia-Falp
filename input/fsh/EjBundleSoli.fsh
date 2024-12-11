@@ -5,6 +5,7 @@ Title: "Ejemplo Bundle solicitud"
 Description: "Ejemplo de estructura de un perfil Bundle para la solicitud de biopsia"
 
 * meta.lastUpdated = "2024-05-20T14:15:00-03:00"
+* identifier.system = "urn:uuid:e6492401-1fe1-436f-a4d7-6ec54e3f7a07"
 * identifier.value = "bundleSoli"  
 * type = #document
 

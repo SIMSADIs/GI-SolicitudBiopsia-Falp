@@ -5,7 +5,7 @@ Title: "Ejemplo Bundle resultado"
 Description: "Ejemplo de estructura de un perfil Bundle para la resutltado de biopsia"
 
 * meta.lastUpdated = "2024-05-20T14:15:00-03:00"
-//* identifier.system = ""
+* identifier.system = "urn:uuid:040b6442-9c17-4df0-896f-9887b96c1b9e"
 * identifier.value = "bundleResult"  
 * type = #document
 
