@@ -62,7 +62,7 @@ Usage : #inline
 * identifier.use = #secondary
 * identifier.type = #01
 * identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
-* identifier.type.coding.display = "Rol Único Nacional o RUN"
+* identifier.type.coding.display = "RUN"
 * identifier.value = "30.696.558-7"
 
 * active = true

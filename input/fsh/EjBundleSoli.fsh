@@ -47,7 +47,7 @@ Usage : #inline
 * identifier.use = #secondary
 * identifier.type = #01
 * identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
-* identifier.type.coding.display = "Rol Único Nacional o RUN"
+* identifier.type.coding.display = "RUN"
 * identifier.value = "30.696.558-7"
 
 * active = true
@@ -117,7 +117,7 @@ Description: "Ejemplo de perfil prestador individual para ejemplo de bundle de d
 
 * identifier.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
 * identifier.value = "15.666.378-2"
-* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores"
+* identifier.type.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"
 * identifier.type.coding.code = #2
 * identifier.type.coding.display = "RNPI"
 
