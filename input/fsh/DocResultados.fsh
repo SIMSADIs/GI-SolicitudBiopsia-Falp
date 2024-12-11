@@ -68,8 +68,9 @@ Description: "Documento de salida de informe con resultados del procedimiento re
 
 * section.code 0.. MS
 * section.code from VSSDocumento1 (extensible)
-* section contains 
 
+* section contains 
+         ServicioSolicitante 0..1 and
          AntecedentesClinicos 0..1 and
          ExamenMacroscopico 0.. and
          //DescripcionMicroscopica 0.. and
@@ -77,6 +78,10 @@ Description: "Documento de salida de informe con resultados del procedimiento re
          DiagnosticoFinal 0..1
   
 
+* section[ServicioSolicitante]
+  * ^definition = "En esta sección van todos los antecedentes clínicos del paciente."
+  * code = $CSSDocumento1#00
+  * entry only Reference(ServicioSolicitante)
 
 * section[AntecedentesClinicos]
   * ^definition = "En esta sección van todos los antecedentes clínicos del paciente."
@@ -84,7 +89,6 @@ Description: "Documento de salida de informe con resultados del procedimiento re
   * entry only Reference(CondicionClinica)
 
 * section[ExamenMacroscopico]
-  
   * ^definition = "En esta sección van todos las descripciones generales  del examen macroscópico de la muestra."
   * code = $CSSDocumento1#02
   * entry only Reference(Muestra)
@@ -128,7 +132,12 @@ Usage: #example
 * event.period.start = "2024-04-13"
 * event.period.end = "2024-07-23"
 
-* section[0].title = "Antecedentes Clínicos."
+* section[0].title = "Servicio Solicitante"
+* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.code = #00
+* section[=].entry.display = "Servicio Solicitante"
+
+* section[+].title = "Antecedentes Clínicos."
 * section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #01
 * section[=].entry.display = "Ámbitoclinico"

@@ -28,7 +28,8 @@ Description: "Bundle para agrupar recursos para el envío de la solicitud de bio
 * entry contains 
     entryDocumento  1..1 MS and
     entryPaciente  1..1 MS and
-    entryPrestador 0..1 MS and
+    entryPrestador 1..1 MS and
+    entryServSolicitante 0..1 MS and
     entryCondicionClinicos 0..* MS and
     entryProcedimientosQuirurgicos 0..* MS and 
     entryDiagnostico 0..*
@@ -58,6 +59,15 @@ Description: "Bundle para agrupar recursos para el envío de la solicitud de bio
   * resource 1..1
     * ^short = "Prestador solicitante"
   * resource only PrestadorIndividual
+
+* entry[entryServSolicitante]
+  * ^short = "Servicio Solicitante"
+  * ^definition = "Servicio que solicita el examen"
+  * fullUrl 0..1 
+    * ^short = "Uri de identificación dentro del Bundle"
+  * resource 1..1
+    * ^short = "Servicio Solicitante"
+  * resource only ServicioSolicitante
 
 * entry[entryCondicionClinicos]
   * ^short = "Antecedentes clínicos"

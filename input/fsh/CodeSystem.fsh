@@ -8,7 +8,7 @@ Description: "Este es un codeSystem en base a las secciones definidas en el docu
 * ^jurisdiction =  urn:iso:std:iso:3166#CL "Chile"
 * ^caseSensitive = true
 
-
+* #00 "Servicio Solicitante"
 * #01 "AntecedentesClinicos"
 * #02 "Examen Macroscopico"
 * #03 "ProcedimientosQuirurgicos"
@@ -116,16 +116,16 @@ Description: "Identificador del servicio clínico que solicita el exámen."
 * ^jurisdiction =  urn:iso:std:iso:3166#CL "Chile"
 * ^caseSensitive = true
 
-* #01 "anatomia Patológica"
-* #02 "urgencia"
-* #03 "pabellón"
-* #04 "ginecolgía"
-* #05 "neonatología"
+* #01 "Anatomia Patológica"
+* #02 "Urgencia"
+* #03 "Pabellón"
+* #04 "Ginecolgía"
+* #05 "Neonatología"
 * #06 "Hospitalización"
 * #07 "UCI"
 * #08 "UTI adulto"
-* #09 "pediatría"
-* #10 "psicolgía"
+* #09 "Pediatría"
+* #10 "Psicolgía"
 
 CodeSystem: CSSSitioCuerpo
 Id: CSSSitioCuerpo

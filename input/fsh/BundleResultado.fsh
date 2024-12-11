@@ -27,7 +27,8 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
 * entry contains 
     entryDocumento 1..1 MS and
     entryPaciente 1..1 MS and
-    entryPrestador 0..1 MS and
+    entryPrestador 1..1 MS and
+    entryServSolicitante 0..1 MS and
     entryCondicionClinica 0..* MS and
     entryExamenMacroscopico 0..* MS and
 /*    entryDescripcionMicroscopica 0..* MS and */
@@ -60,6 +61,15 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
   * resource 1..1
     * ^short = "Prestador informante"
   * resource only PrestadorIndividual
+  
+* entry[entryServSolicitante]
+  * ^short = "Servicio Solicitante"
+  * ^definition = "Servicio que solicita el examen"
+  * fullUrl 0..1 
+    * ^short = "Uri de identificación dentro del Bundle"
+  * resource 1..1
+    * ^short = "Servicio Solicitante"
+  * resource only ServicioSolicitante
 
 * entry[entryCondicionClinica]
   * ^short = "Antecedentes clínicos"

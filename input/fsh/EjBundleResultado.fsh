@@ -21,6 +21,9 @@ Description: "Ejemplo de estructura de un perfil Bundle para la resutltado de bi
 //Prestador
 * entry[entryPrestador].fullUrl = "urn:uuid:a16b72c2-31f2-4a8b-82c5-89dddbc6c32b"
 * entry[entryPrestador].resource = a16b72c2-31f2-4a8b-82c5-89dddbc6c32b
+//Servicio Solicitante
+* entry[entryServSolicitante].fullUrl = "urn:uuid:e0132bb4-f852-40d5-bafd-a1575ec61212"
+* entry[entryServSolicitante].resource = e0132bb4-f852-40d5-bafd-a1575ec61212
 //Condicion Clinica
 * entry[entryCondicionClinica].fullUrl = "urn:uuid:7dcd7289-e637-4c9d-b933-eefdb43d6e67"
 * entry[entryCondicionClinica].resource = 7dcd7289-e637-4c9d-b933-eefdb43d6e67
@@ -142,6 +145,58 @@ Description: "Ejemplo de perfil prestador individual para ejemplo de bundle de d
 
 * extension[Mension].valueString = "NEFROLOGO" 
 
+Instance : e0132bb4-f852-40d5-bafd-a1575ec61212
+Title : "Ejemplo de Servicio Solicitante"
+Description: "Ejemplo de datos del Servico Solicitante."
+InstanceOf : ServicioSolicitante
+Usage : #inline
+
+* id = "identificador"
+* identifier.value = "servicio3"
+
+* specialty.coding.system = "http://snomed.info/sct"
+* specialty.coding.code = #394582007 "Dermatology"
+
+* name = "Servicio de dermatología"
+
+* providedBy = Reference(urn:uuid:a4f08ee1-bdbf-485e-9c14-deb0ceeb1aa3)
+
+Instance: a4f08ee1-bdbf-485e-9c14-deb0ceeb1aa3
+InstanceOf: Organizacion
+Usage: #inline 
+Title: "Example-Organización"
+Description: "An example Organización instance."  
+
+* id = "example-Organizacion"
+* extension[TipoSistemaSalud].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoSistemaSalud"
+* extension[TipoSistemaSalud].valueCodeableConcept.coding = #1 "Público"
+
+* identifier[0].system = "http://example.org/identifiers"
+* identifier[0].value = "7777777-7"
+
+//* extension[TipoEstablecimientosPublicos].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSTipoEstablecimientosPublicos"
+* extension[TipoEstablecimientosPublicos].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoEstablecimientosPublicos"
+* extension[TipoEstablecimientosPublicos].valueCodeableConcept.coding.code = #4 "Establecimientos Hospitalarios"
+
+//* extension[NivelAtencion].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSNivelAtencion"
+* extension[NivelAtencion].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSNivelAtencion"
+* extension[NivelAtencion].valueCodeableConcept.coding.code = #3 "Nivel Terciario"
+
+//* extension[TipoPertinenciaEstab].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSTipoPertinenciaEstab"
+* extension[TipoPertinenciaEstab].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoPertinenciaEstab"
+* extension[TipoPertinenciaEstab].valueCodeableConcept.coding.code = #1 "Perteneciente al Sistema Nacional de Servicios de Salud"
+
+* address.city.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl"
+* address.city.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL"
+* address.city.extension.valueCodeableConcept.coding.code = #13101 "Santiago Centro"
+
+* address.district.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl"
+* address.district.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL"
+* address.district.extension.valueCodeableConcept.coding.code = #131 "Santiago"
+
+* address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
 
 
 Instance: 7dcd7289-e637-4c9d-b933-eefdb43d6e67

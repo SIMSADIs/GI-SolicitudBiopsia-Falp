@@ -12,11 +12,12 @@ Description: "Ejemplo de estructura de un perfil Bundle para la solicitud de bio
 
 * entry[0].fullUrl = "urn:uuid:871153f1-383d-4cf5-bcf2-5ff175de4657"
 * entry[=].resource = 871153f1-383d-4cf5-bcf2-5ff175de4657
-//* entry[=].resource.meta = ""
 * entry[+].fullUrl = "urn:uuid:4f212000-9b14-4b3a-b055-466fc34a01c1"
 * entry[=].resource = 4f212000-9b14-4b3a-b055-466fc34a01c1
 * entry[+].fullUrl = "urn:uuid:1d1a47c3-611b-4a59-8f06-f384eb4b71e7"
 * entry[=].resource = 1d1a47c3-611b-4a59-8f06-f384eb4b71e7
+* entry[+].fullUrl = "urn:uuid:d7b29de6-5dc7-4350-9ce8-363274c72a5a"
+* entry[=].resource = d7b29de6-5dc7-4350-9ce8-363274c72a5a
 * entry[+].fullUrl = "urn:uuid:15f466c9-c4be-48f3-a372-25ebff93b310"
 * entry[=].resource = 15f466c9-c4be-48f3-a372-25ebff93b310
 * entry[+].fullUrl = "urn:uuid:68da446d-8012-4f03-bd3a-e5a70773db44"
@@ -126,6 +127,59 @@ Description: "Ejemplo de perfil prestador individual para ejemplo de bundle de d
 * address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
 
 * extension[Mension].valueString = "NEFROLOGO" 
+
+Instance : d7b29de6-5dc7-4350-9ce8-363274c72a5a
+Title : "Ejemplo de Servicio Solicitante"
+Description: "Ejemplo de datos del Servico Solicitante."
+InstanceOf : ServicioSolicitante
+Usage : #inline
+
+* id = "identificador"
+* identifier.value = "servicio3"
+
+* specialty.coding.system = "http://snomed.info/sct"
+* specialty.coding.code = #394582007 "Dermatology"
+
+* name = "Servicio de dermatología"
+
+* providedBy = Reference(urn:uuid:49f5fbe9-26d4-48c4-8d90-a7216aa58b0a)
+
+Instance: 49f5fbe9-26d4-48c4-8d90-a7216aa58b0a
+InstanceOf: Organizacion
+Usage: #inline 
+Title: "Example-Organización"
+Description: "An example Organización instance."  
+
+* id = "example-Organizacion"
+* extension[TipoSistemaSalud].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoSistemaSalud"
+* extension[TipoSistemaSalud].valueCodeableConcept.coding = #1 "Público"
+
+* identifier[0].system = "http://example.org/identifiers"
+* identifier[0].value = "7777777-7"
+
+//* extension[TipoEstablecimientosPublicos].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSTipoEstablecimientosPublicos"
+* extension[TipoEstablecimientosPublicos].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoEstablecimientosPublicos"
+* extension[TipoEstablecimientosPublicos].valueCodeableConcept.coding.code = #4 "Establecimientos Hospitalarios"
+
+//* extension[NivelAtencion].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSNivelAtencion"
+* extension[NivelAtencion].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSNivelAtencion"
+* extension[NivelAtencion].valueCodeableConcept.coding.code = #3 "Nivel Terciario"
+
+//* extension[TipoPertinenciaEstab].url = "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/VSTipoPertinenciaEstab"
+* extension[TipoPertinenciaEstab].valueCodeableConcept.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/CSTipoPertinenciaEstab"
+* extension[TipoPertinenciaEstab].valueCodeableConcept.coding.code = #1 "Perteneciente al Sistema Nacional de Servicios de Salud"
+
+* address.city.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl"
+* address.city.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL"
+* address.city.extension.valueCodeableConcept.coding.code = #13101 "Santiago Centro"
+
+* address.district.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl"
+* address.district.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL"
+* address.district.extension.valueCodeableConcept.coding.code = #131 "Santiago"
+
+* address.state.extension.url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"
+* address.state.extension.valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"
+* address.state.extension.valueCodeableConcept.coding.code = #13 "RegionMetropolitana"
 
 
 Instance: 15f466c9-c4be-48f3-a372-25ebff93b310

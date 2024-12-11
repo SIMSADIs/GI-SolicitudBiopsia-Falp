@@ -75,10 +75,15 @@ Description: "Documento de entrada para solicitud de biopsia"
 
 * section contains
 
+  ServicioSolicitante 0..1 and
   AntecedentesClinicos 0..* and
   ProcedimientosQuirurgicos 0..* and
   Diagnostico 0..*
   
+* section[ServicioSolicitante] 
+  * ^definition = "Servicio solicitante."
+  * code = $CSSDocumento1#00
+  * entry only Reference(ServicioSolicitante)
 
 * section[AntecedentesClinicos] 
   * ^definition = "antecedentes clínicos del paciente."
@@ -118,6 +123,11 @@ Usage: #example
 * event.period.start = "2024-04-20"
 * event.period.end = "2024-07-20"
  
+* section[ServicioSolicitante].title = "Servicio Solicitante"
+* section[ServicioSolicitante].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[ServicioSolicitante].code.coding.code = #00
+* section[ServicioSolicitante].entry.display = "Servicio Solicitante"
+
 * section[AntecedentesClinicos].title = "Antecedentes Clínicos"
 * section[AntecedentesClinicos].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[AntecedentesClinicos].code.coding.code = #01
