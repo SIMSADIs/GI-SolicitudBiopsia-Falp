@@ -3,7 +3,7 @@
 Esta guía, en conjunto con todas las guías de implementación de la Fundación Arturo López Pérez, están basadas en el estándar [HL7 FHIR R4].
 Ellas buscan modelar de manera interoperable el viaje del paciente, con el fin de realizar un seguimiento oportuno de los pacientes.
 
-(explicar GI biopsia)
+La guía de implementación de informe de biopsia, entrega los perfiles necesarios para generar documentos de solicitud de biopsia y resultados de biopsia, estos documentos representan la información que requeren llevar los documentos clínicos durante la biopsia, además de especificar el bundle para comunicarlos. 
 
 ### Cómo leer esta guía
 
@@ -25,13 +25,25 @@ En la parte superior puede ver la barra de menú, donde aparecen las diferentes 
 
 Los perfiles que fueron diseñados en esta guía son:
 
-  * perfiles...
+  * [Bundle Resultado](StructureDefinition-BundleResultado.html)
+  * [Bundle Solicitud](StructureDefinition-BundleSolicitud.html)
+  * [Condición Clínico](StructureDefinition-CondicionClinica.html)
+  * [Diagnóstico Final](StructureDefinition-DiagnosticoFinal.html)
+  * [Diagnóstico Inicial](StructureDefinition-DiagnosticoInicial.html)
+  * [Documento Solicitud Biopsia](StructureDefinition-DocumentoResultados.html)
+  * [Documento Resultado Biopsia](StructureDefinition-DocumentoBiopsia.html)
+  * [Muestra](StructureDefinition-Muestra.html)
+  * [Procedimiento Quirúrgicos](StructureDefinition-ProcedimientosQuirurgicos.html)
 
 
 ### Dependencias
 
 {% include dependency-table.xhtml %}
 
+### Autores
+
+  * Maritzu Collao
+  * Esteban Fredes
 
 ### Análisis de versiones cruzadas
 
