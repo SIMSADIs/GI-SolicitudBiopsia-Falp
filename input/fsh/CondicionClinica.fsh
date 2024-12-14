@@ -1,3 +1,4 @@
+/*
 Profile: CondicionClinica
 Parent: Condition
 Id: CondicionClinica
@@ -25,5 +26,5 @@ Description: "Condición clinica que presenta el paciente"
 * code from http://hl7.org/fhir/ValueSet/condition-code
 
 * recordedDate MS
-
+*/
 

@@ -135,22 +135,18 @@ Usage: #example
 * section[0].title = "Servicio Solicitante"
 * section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #00
-* section[=].entry.display = "Servicio Solicitante"
+* section[=].entry = Reference(EjServicioSolicitante)
 
 * section[+].title = "Antecedentes Clínicos."
 * section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #01
-* section[=].entry.display = "Ámbitoclinico"
+* section[=].entry = Reference(EjCondicionClinica)
 
 * section[+].title = "Examen Macróscopico."
 * section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #02
 * section[=].entry = Reference(EjMuestra)
 
-/* section[+].title = "DescripciónMicroscópica."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
-* section[=].code.coding.code = #04
-* section[=].entry = Reference(EjMuestra)*/
 
 * section[+].title = "Diagnóstico Inicial."
 * section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"

@@ -126,17 +126,17 @@ Usage: #example
 * section[ServicioSolicitante].title = "Servicio Solicitante"
 * section[ServicioSolicitante].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[ServicioSolicitante].code.coding.code = #00
-* section[ServicioSolicitante].entry.display = "Servicio Solicitante"
+* section[ServicioSolicitante].entry = Reference(EjServicioSolicitante)
 
 * section[AntecedentesClinicos].title = "Antecedentes Clínicos"
 * section[AntecedentesClinicos].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[AntecedentesClinicos].code.coding.code = #01
-* section[AntecedentesClinicos].entry.display = "AntecedentesClinicos"
+* section[AntecedentesClinicos].entry = Reference(EjCondicionClinica)
 
 * section[ProcedimientosQuirurgicos].title = "Procedimientos Quirurgicos"
 * section[ProcedimientosQuirurgicos].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
 * section[ProcedimientosQuirurgicos].code.coding.code = #03
-* section[ProcedimientosQuirurgicos].entry.display = "ProcedimientosQuirurgicos"
+* section[ProcedimientosQuirurgicos].entry = Reference(EjMuestra)
 
 * section[Diagnostico].title = "Diagnostico"
 * section[Diagnostico].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"

@@ -109,9 +109,6 @@ Usage : #inline
 * contact.telecom[=].value = "maria.gonzalez@example.com"
 * contact.telecom[=].use = #home
 
-* contact.telecom[0].extension[MyTelecomExtension].valueString = "ejemplo@correoaompañante.cl"
-
-
 Instance: 1d1a47c3-611b-4a59-8f06-f384eb4b71e7
 InstanceOf: PrestadorIndividual
 Usage: #inline
@@ -196,24 +193,27 @@ Usage: #example
 Title: "EjCondicionClinica"
 Description: "Ejemplo para condicion clinica"
 
-* meta.profile = "http://FALPBIOPSIA.com/StructureDefinition/CondicionClinica"
-
-* subject = Reference(urn:uuid:4f212000-9b14-4b3a-b055-466fc34a01c1)
+* subject = Reference(EjPaciente)
 
 * clinicalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-clinical"
 * clinicalStatus.coding.code = #active
 
-* category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
-* category.coding.code = #problem-list-item
-
 * verificationStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-ver-status"
 * verificationStatus.coding.code = #confirmed
 
-* code.coding.system = "http://snomed.info/sct"
-* code.coding.code = #219006
-* code.coding.display = "Alcohol user"
+* category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
+* category.coding.code = #problem-list-item 
 
-* recordedDate = "2023-08-23"
+* onsetDateTime = "2024-08-02"
+
+* code.coding.system = "http://snomed.info/sct"
+* code.coding.code = #1648002
+* code.coding.display = "Lymphocytic pseudotumor of lung"
+
+* severity.coding.system = "https://FALP.cl/CodeSystem/CSseveridadDiagnostica"
+* severity.coding.code = #MODERADO "MODERADO"
+
+* note.text = "Pulmón derecho"
 
 
 Instance: 68da446d-8012-4f03-bd3a-e5a70773db44

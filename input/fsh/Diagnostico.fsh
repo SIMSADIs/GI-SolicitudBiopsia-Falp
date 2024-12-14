@@ -1,5 +1,5 @@
 Profile : DiagnosticoInicial
-Parent : Condition
+Parent : CoreDiagnosticoCl
 Description: "Este es un perfil para realizar diagnóstico previo al examen de biopsias realizados."
 
 
@@ -28,7 +28,7 @@ Description: "Este es un perfil para realizar diagnóstico previo al examen de b
 
 
 Profile : DiagnosticoFinal
-Parent : Condition
+Parent : CoreDiagnosticoCl
 Description: "Este es un perfil para realizar diagnóstico según examen de biopsias realizados."
 
 

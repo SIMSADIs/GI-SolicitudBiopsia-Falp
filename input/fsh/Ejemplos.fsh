@@ -115,29 +115,6 @@ Usage : #example
 * note.text = "Las células principales del estómago son:  zimogénicas, peptídicas,​ las cuales son un tipo de célula que forman parte de las glándulas gástricas del estómago, y están encargadas de la secreción de pepsinógeno, lipasa gástrica y quimosina." 
 
 
-Instance: EjCondicionClinica
-InstanceOf: CondicionClinica
-Usage: #example
-Title: "EjCondicionClinica"
-Description: "Ejemplo para condicion clinica"
-
-* subject = Reference(EjPaciente)
-
-* clinicalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-clinical"
-* clinicalStatus.coding.code = #active
-
-* verificationStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-ver-status"
-* verificationStatus.coding.code = #confirmed
-
-* category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
-* category.coding.code = #problem-list-item
-* code.coding.system = "http://snomed.info/sct"
-* code.coding.code = #219006
-* code.coding.display = "Alcohol user"
-
-* recordedDate = "2023-08-23"
-
-
 // 9. Ejemplo de Procedimientos Quirúrgico
 Instance : EjProcedimientosQuirurgicos
 Title : "Ejemplo de Procedimientos Quirúrgicos."
@@ -255,8 +232,6 @@ Description: "An example Patient instance."
 * contact.telecom[0].value = "maria.gonzalez@example.com"
 * contact.telecom[0].use = #home
 
-* contact.telecom[0].extension[MyTelecomExtension].valueString = "ejemplo@correoaompañante.cl"
-
 
 
 // PRESTADOR INDIVIDUAL  //
@@ -348,3 +323,31 @@ Usage : #inline
 * name = "Servicio de dermatología"
 
 * providedBy = Reference(EjOrganizacion)
+
+Instance: EjCondicionClinica
+InstanceOf: CondicionClinica
+Usage: #inline
+Title: "EjCondicionClinica"
+Description: "Ejemplo para condicion clinica"
+
+* subject = Reference(EjPaciente)
+
+* clinicalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-clinical"
+* clinicalStatus.coding.code = #active
+
+* verificationStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+* verificationStatus.coding.code = #confirmed
+
+* category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
+* category.coding.code = #problem-list-item 
+
+* onsetDateTime = "2024-08-02"
+
+* code.coding.system = "http://snomed.info/sct"
+* code.coding.code = #1648002
+* code.coding.display = "Lymphocytic pseudotumor of lung"
+
+* severity.coding.system = "https://FALP.cl/CodeSystem/CSseveridadDiagnostica"
+* severity.coding.code = #MODERADO "MODERADO"
+
+* note.text = "Pulmón derecho"
