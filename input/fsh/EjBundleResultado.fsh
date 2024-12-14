@@ -204,7 +204,7 @@ Usage: #inline
 Title: "EjCondicionClinica"
 Description: "Ejemplo para condicion clinica"
 
-* subject = Reference(EjPaciente)
+* subject = Reference(urn:uuid:747e64e4-db06-48f3-9692-cf1bf30f0100)
 
 * clinicalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-clinical"
 * clinicalStatus.coding.code = #active

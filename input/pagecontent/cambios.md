@@ -34,7 +34,7 @@ Se agregaron diferentes pestañas en la barra superior de la guía, además de a
   * Crearon los perfiles CondiciónClinica, BundleSoli y BundleResultado
 
 
-#### [Diagnostico](StructureDefinition-DiagnosticoPrevio.html)
+#### [DiagnosticoInicial](StructureDefinition-DiagnosticoInicial.html)
 
 El perfil diagnóstico fue modificado en su recurso de dependencia, cambiando de un diagnosticReport a un recurso Condition. Por consiguiente, se cambio la totalidad de los elementos del perfil.
 

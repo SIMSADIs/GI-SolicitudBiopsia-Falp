@@ -193,7 +193,7 @@ Usage: #example
 Title: "EjCondicionClinica"
 Description: "Ejemplo para condicion clinica"
 
-* subject = Reference(EjPaciente)
+* subject = Reference(urn:uuid:4f212000-9b14-4b3a-b055-466fc34a01c1)
 
 * clinicalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-clinical"
 * clinicalStatus.coding.code = #active
