@@ -18,7 +18,6 @@ Description: "Este es un perfil donde se encontrarán los procedimientos quierú
 * subject MS 
 * subject only Reference(Paciente)
 
-
 * performed[x] 0..1
 * performed[x] only dateTime 
 

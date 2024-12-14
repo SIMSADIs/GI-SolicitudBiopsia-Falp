@@ -73,7 +73,6 @@ Description: "Documento de salida de informe con resultados del procedimiento re
          ServicioSolicitante 0..1 and
          AntecedentesClinicos 0..1 and
          ExamenMacroscopico 0.. and
-         //DescripcionMicroscopica 0.. and
          DiagnosticoInicial 0.. and
          DiagnosticoFinal 0..1
   
@@ -92,11 +91,6 @@ Description: "Documento de salida de informe con resultados del procedimiento re
   * ^definition = "En esta sección van todos las descripciones generales  del examen macroscópico de la muestra."
   * code = $CSSDocumento1#02
   * entry only Reference(Muestra)
-
-/* section[DescripcionMicroscopica]
-  * ^definition = "En esta sección van todos las descripciones específicas de la muestra."
-  * code = $CSSDocumento1#04
-  * entry only Reference(Muestra)*/
 
 * section[DiagnosticoInicial]
   * ^definition = "En esta sección va el resultado inicial  del procedimiento."

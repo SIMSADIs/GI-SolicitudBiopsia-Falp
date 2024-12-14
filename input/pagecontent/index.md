@@ -27,7 +27,6 @@ Los perfiles que fueron diseñados en esta guía son:
 
   * [Bundle Resultado](StructureDefinition-BundleResultado.html)
   * [Bundle Solicitud](StructureDefinition-BundleSolicitud.html)
-  * [Condición Clínico](StructureDefinition-CondicionClinica.html)
   * [Diagnóstico Final](StructureDefinition-DiagnosticoFinal.html)
   * [Diagnóstico Inicial](StructureDefinition-DiagnosticoInicial.html)
   * [Documento Solicitud Biopsia](StructureDefinition-DocumentoResultados.html)

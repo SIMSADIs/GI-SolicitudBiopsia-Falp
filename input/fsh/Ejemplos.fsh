@@ -46,33 +46,6 @@ Description: "Ejemplo de perfil diagnóstico final"
 
 * recordedDate = "2023-08-25"
 
-/** id = "identificador"
-* identifier.use = #official    //obligado
-
-* identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
-* identifier.type.coding.code = #SNO
-* identifier.type.coding.display = "Serial Number"
-
-* code = #100-8
-* code.coding.system = "http://loinc.org"
-
-* identifier.value = "12.676.445-k"
-
-* effectiveDateTime = "2023-07-13T14:15:30-04:00"
-* subject = Reference(EjPaciente)
-* status = #final
-* issued = "2024-06-22T14:15:30-03:00"
-* performer.display = "profesional"
-* resultsInterpreter.display = "profesional"
-* specimen.display = "Extracto de colón"
-* result.display = "Se observa hipertrofia de la epidermis con presencia de queratinocitos displásicos,
-La dermis muestra un infiltrado inflamatorio crónico con predominancia de linfocitos."
-* conclusion = "La biopsia realizada en el tejido del paciente ha revelado la presencia de células malignas, compatibles con un carcinoma de tipo adenocarcinoma. Las características histológicas observadas sugieren que la neoplasia es de grado intermedio, con infiltración en tejidos adyacentes y evidencia de mitosis aumentada."
-* presentedForm.title = "Resultado de Biopsia"
-* presentedForm.title = "Descripción Microscopica"
-* presentedForm.title = "Descripción Macroscopica"
-* presentedForm.url = 	"http://hl7.org/fhir/ValueSet/languages"
-*/
 
 // 7.Ejemplo de Muestra
 Instance : EjMuestra
@@ -103,7 +76,7 @@ Usage : #example
 * parent.display = "Estómago"
 * request = Reference(EjSolicitudProcedimiento)
 * collection
-  * collector.display = "Profesional"
+  * collector = Reference(EjPrestadorIndividual)
   * quantity.value = 1
 
 * container.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0487"
