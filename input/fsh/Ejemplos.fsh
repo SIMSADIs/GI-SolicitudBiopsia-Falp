@@ -320,7 +320,7 @@ Description: "Ejemplo para condicion clinica"
 * code.coding.code = #1648002
 * code.coding.display = "Lymphocytic pseudotumor of lung"
 
-* severity.coding.system = "https://FALP.cl/CodeSystem/CSseveridadDiagnostica"
+* severity.coding.system = "https://falp.cl/fhir/ig/corefalp/CodeSystem/CSseveridadDiagnostica"
 * severity.coding.code = #MODERADO "MODERADO"
 
 * note.text = "Pulmón derecho"
