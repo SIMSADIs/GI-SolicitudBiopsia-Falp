@@ -147,6 +147,7 @@ Usage: #example
 * section[=].code.coding.code = #06
 * section[=].entry = Reference(EjDiagnosticoInicial)
 
-* section[+].title = "Diagnóstico Final."
+* section[+].title = "Diagnóstico Final"
 * section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
+* section[=].code.coding.code = #07
 * section[=].entry = Reference(EjDiagnosticoFinal)

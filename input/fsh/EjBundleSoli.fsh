@@ -262,7 +262,6 @@ Usage: #inline
 Title: "EjDiagnosticoBundle"
 
 * id = "2"
-* meta.profile = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 
 * clinicalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-clinical"
 * clinicalStatus.coding.code = #active
