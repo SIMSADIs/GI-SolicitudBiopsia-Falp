@@ -129,7 +129,7 @@ Description: "An example Solicitud del Procedimiento instance."
 
 * note.text = "Alergia a la anestesia"
 Instance: EjPaciente
-InstanceOf: Paciente 
+InstanceOf: PacienteFalp 
 Usage: #inline
 Title: "Example Patient"
 Description: "An example Patient instance."
@@ -209,7 +209,7 @@ Description: "An example Patient instance."
 
 // PRESTADOR INDIVIDUAL  //
 Instance: EjPrestadorIndividual
-InstanceOf: PrestadorIndividual
+InstanceOf: PrestadorIndFalp
 Usage: #inline 
 Title: "Example Prestador Individual"
 Description: "An example Prestador individual instance." 

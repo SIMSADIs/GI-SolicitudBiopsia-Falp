@@ -14,7 +14,6 @@ Description: "Ejemplo de estructura de un perfil Bundle para la resutltado de bi
 //documento
 * entry[entryDocumento].fullUrl = "urn:uuid:7e1e2f8d-49ac-4958-b2e8-df7fe3dc9a43"
 * entry[entryDocumento].resource = 7e1e2f8d-49ac-4958-b2e8-df7fe3dc9a43
-//* entry[entryDocumento].resoruce.meta.profile = "http://FALPBIOPSIA.com/StructureDefinition/DocumentoResultados"
 //Paciente
 * entry[entryPaciente].fullUrl = "urn:uuid:747e64e4-db06-48f3-9692-cf1bf30f0100"
 * entry[entryPaciente].resource = 747e64e4-db06-48f3-9692-cf1bf30f0100
@@ -30,10 +29,6 @@ Description: "Ejemplo de estructura de un perfil Bundle para la resutltado de bi
 //Examen Macro
 * entry[entryExamenMacroscopico].fullUrl = "urn:uuid:360e126c-e826-4c2a-883d-a3298cfcb0b3"
 * entry[entryExamenMacroscopico].resource = 360e126c-e826-4c2a-883d-a3298cfcb0b3
-//Descrpcion Micro
-/* entry[entryDescripcionMicroscopica].fullUrl = "urn:uuid:9d8f7179-7ad8-4896-b0c0-4b960fc80ead"
-* entry[entryDescripcionMicroscopica].resource = 9d8f7179-7ad8-4896-b0c0-4b960fc80ead
-*/
 // Diagnostico Inicial
 * entry[entryDiagnosticoInicial].fullUrl = "urn:uuid:c1ab1686-ebbd-4ae2-977b-9a1ed3963382"
 * entry[entryDiagnosticoInicial].resource = c1ab1686-ebbd-4ae2-977b-9a1ed3963382
@@ -45,7 +40,7 @@ Description: "Ejemplo de estructura de un perfil Bundle para la resutltado de bi
 Instance : 747e64e4-db06-48f3-9692-cf1bf30f0100
 Title : "Ejemplo de Recurso Paciente"
 Description: "Paciente ficticio nacional CI Chilena, sin sistema de validación \"http://regcivil.cl/Validacion/RUN\" ficticio, cuyo nombre se decribe mediante el oficial y uno social. La dirección tampoco es real."
-InstanceOf : Paciente
+InstanceOf : PacienteFalp
 Usage : #inline
 
 
@@ -121,7 +116,7 @@ Usage : #inline
 
 
 Instance: a16b72c2-31f2-4a8b-82c5-89dddbc6c32b
-InstanceOf: PrestadorIndividual
+InstanceOf: PrestadorIndFalp
 Usage: #inline
 Title: "PrestadorBunndleSoli"
 Description: "Ejemplo de perfil prestador individual para ejemplo de bundle de documento de solicitud de biopsia"
@@ -221,7 +216,7 @@ Description: "Ejemplo para condicion clinica"
 * code.coding.code = #1648002
 * code.coding.display = "Lymphocytic pseudotumor of lung"
 
-* severity.coding.system = "https://FALP.cl/CodeSystem/CSseveridadDiagnostica"
+* severity.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * severity.coding.code = #MODERADO "MODERADO"
 
 * note.text = "Pulmón derecho"
@@ -339,32 +334,27 @@ Usage: #inline
 * event.period.end = "2024-07-23"
 
 * section[0].title = "Servicio solicitante"
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #00
 * section[=].entry = Reference(urn:uuid:e0132bb4-f852-40d5-bafd-a1575ec61212)
 
 * section[+].title = "Antecedentes Clínicos."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #01
 * section[=].entry = Reference(urn:uuid:7dcd7289-e637-4c9d-b933-eefdb43d6e67)
 
 
 * section[+].title = "Examen Macróscopico."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #02
 * section[=].entry = Reference(urn:uuid:360e126c-e826-4c2a-883d-a3298cfcb0b3)
 
-/* section[+].title = "DescripciónMicroscópica."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
-* section[=].code.coding.code = #04
-* section[=].entry = Reference(urn:uuid:9d8f7179-7ad8-4896-b0c0-4b960fc80ead)
-*/
 * section[+].title = "Diagnóstico Inicial."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #06
 * section[=].entry = Reference(urn:uuid:c1ab1686-ebbd-4ae2-977b-9a1ed3963382)
 
 * section[+].title = "Diagnóstico Final."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #07
 * section[=].entry = Reference(urn:uuid:ac30bbf8-ab94-4586-8e7f-4c93b5b08471)

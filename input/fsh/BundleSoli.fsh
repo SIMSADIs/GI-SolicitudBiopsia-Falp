@@ -49,7 +49,7 @@ Description: "Bundle para agrupar recursos para el envío de la solicitud de bio
     * ^short = "Uri de identificación dentro del Bundle"
   * resource 1..1
     * ^short = "Paciente que se realizará la biopsia"
-  * resource only Paciente
+  * resource only PacienteFalp
 
 * entry[entryPrestador]
   * ^short = "Prestador que solicita la biopsia"
@@ -58,7 +58,7 @@ Description: "Bundle para agrupar recursos para el envío de la solicitud de bio
     * ^short = "Uri de identificación dentro del Bundle"
   * resource 1..1
     * ^short = "Prestador solicitante"
-  * resource only PrestadorIndividual
+  * resource only PrestadorIndFalp
 
 * entry[entryServSolicitante]
   * ^short = "Servicio Solicitante"

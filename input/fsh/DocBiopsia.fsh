@@ -1,4 +1,4 @@
-Alias: $CSSDocumento1 = http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1
+Alias: $CSSDocumento1 = http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1
 
 Profile: DocumentoBiopsia
 Parent: Composition
@@ -20,7 +20,7 @@ Description: "Documento de entrada para solicitud de biopsia"
 
 //* ---- Paciente ----- 
 * subject 0..1
-* subject only Reference(Paciente)
+* subject only Reference(PacienteFalp)
 * subject MS
 * subject ^definition = "Paciente sobre el cual se ha generado este documento."
 * subject ^short = "Paciente sobre el cual se ha generado este documento."
@@ -41,7 +41,7 @@ Description: "Documento de entrada para solicitud de biopsia"
 
 //*--- profesional---
 * author 1..*
-* author only Reference(PrestadorIndividual)
+* author only Reference(PrestadorIndFalp)
 * author MS
 * author ^definition = "Prestador encargado de  generar  este documento."
 * author ^short = "Prestador  el cual genera el documento."
@@ -124,21 +124,21 @@ Usage: #example
 * event.period.end = "2024-07-20"
  
 * section[ServicioSolicitante].title = "Servicio Solicitante"
-* section[ServicioSolicitante].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[ServicioSolicitante].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[ServicioSolicitante].code.coding.code = #00
 * section[ServicioSolicitante].entry = Reference(EjServicioSolicitante)
 
 * section[AntecedentesClinicos].title = "Antecedentes Clínicos"
-* section[AntecedentesClinicos].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[AntecedentesClinicos].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[AntecedentesClinicos].code.coding.code = #01
 * section[AntecedentesClinicos].entry = Reference(EjCondicionClinica)
 
 * section[ProcedimientosQuirurgicos].title = "Procedimientos Quirurgicos"
-* section[ProcedimientosQuirurgicos].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[ProcedimientosQuirurgicos].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[ProcedimientosQuirurgicos].code.coding.code = #03
 * section[ProcedimientosQuirurgicos].entry = Reference(EjMuestra)
 
 * section[Diagnostico].title = "Diagnostico"
-* section[Diagnostico].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[Diagnostico].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[Diagnostico].code.coding.code = #05
 * section[Diagnostico].entry = Reference(EjDiagnosticoInicial)

@@ -31,7 +31,6 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
     entryServSolicitante 0..1 MS and
     entryCondicionClinica 0..* MS and
     entryExamenMacroscopico 0..* MS and
-/*    entryDescripcionMicroscopica 0..* MS and */
     entryDiagnosticoInicial 0..1 MS and
     entryDiagnosticoFinal 0..1 MS
 
@@ -51,7 +50,7 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
     * ^short = "Uri de identificación dentro del Bundle"
   * resource 1..1
     * ^short = "Paciente que se realizó la biopsia"
-  * resource only Paciente
+  * resource only PacienteFalp
 
 * entry[entryPrestador]
   * ^short = "Prestador que realizó el informe de biopsia"
@@ -60,7 +59,7 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
     * ^short = "Uri de identificación dentro del Bundle"
   * resource 1..1
     * ^short = "Prestador informante"
-  * resource only PrestadorIndividual
+  * resource only PrestadorIndFalp
   
 * entry[entryServSolicitante]
   * ^short = "Servicio Solicitante"
@@ -88,16 +87,7 @@ Description: "Bundle para agrupar recursos para el envío de la respuesta del ex
   * resource 1..1
     * ^short = "Examen macroscópico"
   * resource only Muestra
-/*
-* entry[entryDescripcionMicroscopica]
-  * ^short = "Descripción microscópica de la muestra"
-  * ^definition = "Descripciones específicas de la muestra"
-  * fullUrl 0..1 
-    * ^short = "Uri de identificación dentro del Bundle"
-  * resource 1..1
-    * ^short = "Descripción microscópica"
-  * resource only Muestra
-*/
+
 * entry[entryDiagnosticoInicial]
   * ^short = "Diagnóstico inicial"
   * ^definition = "Diagnóstico del prestador antes de realizar el examen de biopsia"

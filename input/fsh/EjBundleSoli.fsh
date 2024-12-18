@@ -35,7 +35,7 @@ Description: "Ejemplo de estructura de un perfil Bundle para la solicitud de bio
 Instance : 4f212000-9b14-4b3a-b055-466fc34a01c1
 Title : "Ejemplo de Recurso Paciente"
 Description: "Paciente ficticio nacional CI Chilena, sin sistema de validación \"http://regcivil.cl/Validacion/RUN\" ficticio, cuyo nombre se decribe mediante el oficial y uno social. La dirección tampoco es real."
-InstanceOf : Paciente
+InstanceOf : PacienteFalp
 Usage : #inline
 
 
@@ -110,7 +110,7 @@ Usage : #inline
 * contact.telecom[=].use = #home
 
 Instance: 1d1a47c3-611b-4a59-8f06-f384eb4b71e7
-InstanceOf: PrestadorIndividual
+InstanceOf: PrestadorIndFalp
 Usage: #inline
 Title: "PrestadorBunndleSoli"
 Description: "Ejemplo de perfil prestador individual para ejemplo de bundle de documento de solicitud de biopsia"
@@ -189,7 +189,7 @@ Description: "An example Organización instance."
 
 Instance: 15f466c9-c4be-48f3-a372-25ebff93b310
 InstanceOf: CondicionClinica
-Usage: #example
+Usage: #inline
 Title: "EjCondicionClinica"
 Description: "Ejemplo para condicion clinica"
 
@@ -210,7 +210,7 @@ Description: "Ejemplo para condicion clinica"
 * code.coding.code = #1648002
 * code.coding.display = "Lymphocytic pseudotumor of lung"
 
-* severity.coding.system = "https://FALP.cl/CodeSystem/CSseveridadDiagnostica"
+* severity.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * severity.coding.code = #MODERADO "MODERADO"
 
 * note.text = "Pulmón derecho"
@@ -262,7 +262,7 @@ Usage: #inline
 Title: "EjDiagnosticoBundle"
 
 * id = "2"
-* meta.profile = "http://FALPBIOPSIA.com/StructureDefinition/DiagnosticoInicial"
+* meta.profile = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 
 * clinicalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/condition-clinical"
 * clinicalStatus.coding.code = #active
@@ -309,22 +309,22 @@ Usage: #inline
 * relatesTo.targetIdentifier.value = "IPS-CL-2024-001"
 
 * section[0].title = "Servicio solicitante"
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #00
 * section[=].entry = Reference(urn:uuid:d7b29de6-5dc7-4350-9ce8-363274c72a5a)
 
 * section[+].title = "Antecedentes Clínicos"
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #01
 * section[=].entry = Reference(urn:uuid:15f466c9-c4be-48f3-a372-25ebff93b310)
 
 * section[+].title = "Procedimientos Quirurgicos."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #03
 * section[=].entry = Reference(urn:uuid:68da446d-8012-4f03-bd3a-e5a70773db44)
 
 * section[+].title = "Diagnostico."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #05
 * section[=].entry = Reference(urn:uuid:b8dd3cef-5b58-4ef1-a919-f8cb8e634187)
 

@@ -1,4 +1,4 @@
-Alias: $CSSDocumento1 = http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1
+Alias: $CSSDocumento1 = http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1
 
 Profile: DocumentoResultados
 Parent: Composition
@@ -18,7 +18,7 @@ Description: "Documento de salida de informe con resultados del procedimiento re
 
 //* ---- Paciente ----- 
 * subject 0..1
-* subject only Reference(Paciente)
+* subject only Reference(PacienteFalp)
 * subject MS
 * subject ^definition = "Paciente sobre el cual se ha generado este documento."
 * subject ^short = "Paciente sobre el cual se ha generado este documento."
@@ -40,7 +40,7 @@ Description: "Documento de salida de informe con resultados del procedimiento re
 
 //*--- profesional---
 * author 1..*
-* author only Reference(PrestadorIndividual)
+* author only Reference(PrestadorIndFalp)
 * author MS
 * author ^definition = "Prestador encargado de  generar  este documento."
 * author ^short = "Prestador  el cual genera el documento."
@@ -127,27 +127,26 @@ Usage: #example
 * event.period.end = "2024-07-23"
 
 * section[0].title = "Servicio Solicitante"
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #00
 * section[=].entry = Reference(EjServicioSolicitante)
 
 * section[+].title = "Antecedentes Clínicos."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #01
 * section[=].entry = Reference(EjCondicionClinica)
 
 * section[+].title = "Examen Macróscopico."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #02
 * section[=].entry = Reference(EjMuestra)
 
 
 * section[+].title = "Diagnóstico Inicial."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].code.coding.code = #06
 * section[=].entry = Reference(EjDiagnosticoInicial)
 
 * section[+].title = "Diagnóstico Final."
-* section[=].code.coding.system = "http://FALPBIOPSIA.com/CodeSystem/CSSDocumento1"
-* section[=].code.coding.code = #07
+* section[=].code.coding.system = "http://falp.com/fhir/ig/falpbiopsia/CodeSystem/CSSDocumento1"
 * section[=].entry = Reference(EjDiagnosticoFinal)
